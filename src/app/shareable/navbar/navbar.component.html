@@ -1,0 +1,39 @@
+<div class="flex flex-wrap w-full bg-white shadow-xl lg:h-20 ">
+    <div class="w-full flex items-center justify-center lg:w-1/2 ">
+        <img class="w-28" src="../../assets/images/logo.png" alt="logo">
+        <svg (click)="menuClicked()" xmlns="http://www.w3.org/2000/svg" class="w-6 sm:hidden absolute right-5" viewBox="0 0 20 20"><path fill="currentColor" d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/></svg>
+    </div>
+    <div class="flex pl-8 items-center lg:w-1/2 w-full justify-center">
+        <div class=" flex justify-center items-center gap-3 hidden sm:block lg:ml-[-80px]">
+            <app-button [name]="'Home'" [style]="style1"></app-button>
+            <app-button [name]="'Works'" [style]="style1"></app-button>
+            <app-button [name]="'Properties'" [style]="style1"></app-button>
+            <app-button [name]="'About Us'" [style]="style1"></app-button>
+        </div>
+        <div *ngIf="logined" class="w-16 h-16 border border-black rounded-full absolute right-5 md:top-[70px] md:w-12 md:h-12 sm:top-[80px] sm:w-10 sm:h-10 lg:top-[20px]  hidden sm:block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 31.25a8.333 8.333 0 1 0 0-16.667a8.333 8.333 0 0 0 0 16.667"/><path stroke="#344054" d="M29.52 29.896a8.23 8.23 0 0 1-9.04 0a14.58 14.58 0 0 0-8.917 8.166a18.75 18.75 0 0 0 26.687.188l.188-.188a14.6 14.6 0 0 0-8.917-8.166"/><path stroke="#306CFE" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/></g></svg>
+        </div>
+        <div *ngIf="!logined" class="absolute right-5 md:top-[80px] sm:top-[80px] lg:top-[20px]  hidden sm:block">
+            <app-button [name]="'Login'" [style]="style2"></app-button>
+        </div>
+    </div>
+</div>
+<div class="{{menu}} shadow-xl w-28 pb-3 absolute right-5 top-[100px] sm:hidden">
+    <div class="flex flex-col w-28 pl-2 pr-2">
+        <app-button [name]="'Home'" [style]="style3"></app-button>
+        <app-button [name]="'Works'" [style]="style3"></app-button>
+        <app-button [name]="'Properties'" [style]="style3"></app-button>
+        <app-button [name]="'About Us'" [style]="style3"></app-button>
+    </div>
+    <div class="pt-3 w-28 pl-2 pr-2 flex justify-center items-center">
+        <div *ngIf="!logined">
+            <app-button [name]="'Login'" [style]="style4"></app-button>
+        </div>
+        <div *ngIf="logined" class="w-8 h-8 border border-black rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 31.25a8.333 8.333 0 1 0 0-16.667a8.333 8.333 0 0 0 0 16.667"/><path stroke="#344054" d="M29.52 29.896a8.23 8.23 0 0 1-9.04 0a14.58 14.58 0 0 0-8.917 8.166a18.75 18.75 0 0 0 26.687.188l.188-.188a14.6 14.6 0 0 0-8.917-8.166"/><path stroke="#306CFE" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/></g></svg>
+        </div>
+        <div *ngIf="logined" class="ml-[1px]">
+            <app-button [name]="'Change'" [style]="style4"></app-button>
+        </div>
+    </div>
+</div>
