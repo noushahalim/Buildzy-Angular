@@ -1,4 +1,4 @@
-<div class="w-screen h-screen absolute truncate">
+<div class="w-screen h-screen absolute truncate hidden lg:block">
     <div class="w-[784px] h-[631px] rounded-full rotate-12 relative left-[-320px] top-[-290px] bg-[#303771]">
         <div class="w-[880px] h-[633px] rounded-full relative left-[-140px] top-[-10px] bg-[#7E88E1]"></div>
     </div>
@@ -8,34 +8,34 @@
 </div>
 
 <div class="w-screen h-screen bg-white flex items-center justify-center">
-    <div class="w-[800px] h-[450px] bg-white rounded-xl relative shadow-[0_0_15px_-2px_rgba(0,0,0,0.2)] truncate flex">
-        <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center scale-x-[-1] flex items-center justify-center flex-col">
+    <div class="w-[400px] md:w-[800px] h-[450px] bg-white rounded-xl relative shadow-[0_0_15px_-2px_rgba(0,0,0,0.2)] truncate flex">
+        <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center scale-x-[-1] flex items-center justify-center flex-col hidden md:flex">
             <img class="scale-x-[-1] w-60" src="../../../assets/images/logo.png" alt="">
             <p class="scale-x-[-1] w-56 text-[11px] text-[#303771] text-wrap">Bridge the gap. Buildzy connects users & engineers to build a better future, together.</p>
         </div>
-        <div class="w-1/2 h-full flex flex-col items-center">
+        <div class="w-full md:w-1/2 h-full flex flex-col items-center">
             <p class="text-[18px] font-medium leading-10">WELCOME TO</p>
             <P class="text-[50px] font-medium text-[#303771] leading-10">BUILDZY</P>
             <P class="text-[15px] font-light text-[#707070] w-2/3 text-wrap text-center flex leading-4 mt-2 mb-2">Join our growing community and build your future.</P>
             <div class="border w-2/3 h-8 border-[#AFAFAF] rounded-lg flex items-center mt-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 1024 1024"><path fill="currentColor" d="M511.728 64c108.672 0 223.92 91.534 223.92 159.854v159.92c0 61.552-25.6 179.312-94.256 233.376a63.99 63.99 0 0 0-23.968 57.809c2.624 22.16 16.592 41.312 36.848 50.625l278.496 132.064c2.176.992 26.688 5.104 26.688 39.344l.032 62.464L64 959.504V894.56c0-25.44 19.088-33.425 26.72-36.945l281.023-132.624c20.16-9.248 34.065-28.32 36.769-50.32c2.72-22-6.16-43.84-23.456-57.712c-66.48-53.376-97.456-170.704-97.456-233.185v-159.92C287.615 157.007 404.016 64 511.728 64zm0-64.002c-141.312 0-288.127 117.938-288.127 223.857v159.92c0 69.872 31.888 211.248 121.392 283.088l-281.04 132.64S.001 827.999.001 863.471v96.032c0 35.344 28.64 63.968 63.951 63.968h895.552c35.344 0 63.968-28.624 63.968-63.968v-96.032c0-37.6-63.968-63.968-63.968-63.968L681.008 667.439c88.656-69.776 118.656-206.849 118.656-283.665v-159.92c0-105.92-146.64-223.855-287.936-223.855z"/></svg>
-                <shared-input [style]="'ml-2 w-full rounded'" [placeholder]="'Full Name'"></shared-input>
+                <shared-input [style]="'ml-2 w-56 rounded'" [placeholder]="'Full Name'"></shared-input>
             </div>
             <div class="border w-2/3 h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 16 16"><path fill="currentColor" d="M11.5 0h-7C3.675 0 3 .675 3 1.5v13c0 .825.675 1.5 1.5 1.5h7c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5zM6 .75h4v.5H6v-.5zM8 15a1 1 0 1 1 0-2a1 1 0 0 1 0 2zm4-3H4V2h8v10z"/></svg>
-                <shared-input [style]="'ml-2 w-full rounded'" [type]="'number'" [placeholder]="'Mobile'"></shared-input>
+                <shared-input [style]="'ml-2 w-56 rounded'" [type]="'number'" [placeholder]="'Mobile'"></shared-input>
             </div>
             <div class="border w-2/3 h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="m16.484 11.976l6.151-5.344v10.627zm-7.926.905l2.16 1.875c.339.288.781.462 1.264.462h.017h-.001h.014c.484 0 .926-.175 1.269-.465l-.003.002l2.16-1.875l6.566 5.639H1.995zM1.986 5.365h20.03l-9.621 8.356a.612.612 0 0 1-.38.132h-.014h.001h-.014a.61.61 0 0 1-.381-.133l.001.001zm-.621 1.266l6.15 5.344l-6.15 5.28zm21.6-2.441c-.24-.12-.522-.19-.821-.19H1.859a1.87 1.87 0 0 0-.835.197l.011-.005A1.856 1.856 0 0 0 0 5.855v12.172a1.86 1.86 0 0 0 1.858 1.858h20.283a1.86 1.86 0 0 0 1.858-1.858V5.855c0-.727-.419-1.357-1.029-1.66l-.011-.005z"/></svg>
-                <shared-input [style]="'ml-2 w-full rounded'" [type]="'email'" [placeholder]="'Email'"></shared-input>
+                <shared-input [style]="'ml-2 w-56 rounded'" [type]="'email'" [placeholder]="'Email'"></shared-input>
             </div>
             <div class="border w-2/3 h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 16 16"><path fill="currentColor" d="M13.35 16H2.65C1.74 16 1 15.26 1 14.35v-7.7C1 5.74 1.74 5 2.65 5h10.7c.91 0 1.65.74 1.65 1.65v7.69c0 .91-.74 1.65-1.65 1.65ZM2.65 6c-.36 0-.65.29-.65.65v7.69c0 .36.29.65.65.65h10.7c.36 0 .65-.29.65-.65V6.65c0-.36-.29-.65-.65-.65H2.65Z"/><path fill="currentColor" d="M12.54 6H3.46V4.54C3.46 2.04 5.5 0 8 0s4.54 2.04 4.54 4.54V6ZM4.46 5h7.08v-.46C11.54 2.59 9.95 1 8 1S4.46 2.59 4.46 4.54V5Z"/><circle cx="12" cy="10.5" r="1" fill="currentColor"/><circle cx="8" cy="10.5" r="1" fill="currentColor"/><circle cx="4" cy="10.5" r="1" fill="currentColor"/></svg>
-                <shared-input [style]="'ml-2 w-full rounded'" [type]="'password'" [placeholder]="'Password'"></shared-input>
+                <shared-input [style]="'ml-2 w-56 rounded'" [type]="'password'" [placeholder]="'Password'"></shared-input>
             </div>
             <div class="border w-2/3 h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 16 16"><path fill="currentColor" d="M13.35 16H2.65C1.74 16 1 15.26 1 14.35v-7.7C1 5.74 1.74 5 2.65 5h10.7c.91 0 1.65.74 1.65 1.65v7.69c0 .91-.74 1.65-1.65 1.65ZM2.65 6c-.36 0-.65.29-.65.65v7.69c0 .36.29.65.65.65h10.7c.36 0 .65-.29.65-.65V6.65c0-.36-.29-.65-.65-.65H2.65Z"/><path fill="currentColor" d="M12.54 6H3.46V4.54C3.46 2.04 5.5 0 8 0s4.54 2.04 4.54 4.54V6ZM4.46 5h7.08v-.46C11.54 2.59 9.95 1 8 1S4.46 2.59 4.46 4.54V5Z"/><circle cx="12" cy="10.5" r="1" fill="currentColor"/><circle cx="8" cy="10.5" r="1" fill="currentColor"/><circle cx="4" cy="10.5" r="1" fill="currentColor"/></svg>
-                <shared-input [style]="'ml-2 w-full rounded'" [type]="'password'" [placeholder]="'Confirm Password'"></shared-input>
+                <shared-input [style]="'ml-2 w-56 rounded'" [type]="'password'" [placeholder]="'Confirm Password'"></shared-input>
             </div>
             <shared-button [name]="'SIGN UP'" [style]="'w-[265px] flex justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'"></shared-button>
             <p class="font-medium text-sm">or</p>
