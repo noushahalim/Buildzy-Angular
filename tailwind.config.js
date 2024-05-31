@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'engineer1':"url('/assets/images/BuildingEngineer.jpg')"
+      }
+    },
   },
   plugins: [],
 }

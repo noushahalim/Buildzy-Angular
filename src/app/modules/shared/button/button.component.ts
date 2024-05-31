@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'shared-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })
@@ -10,4 +10,6 @@ export class ButtonComponent {
   style:string= "bg-black text-white hover:bg-white hover:text-black"
   @Input()
   name:string= "default"
+  @Input()
+  routerLink:string=''
 }
