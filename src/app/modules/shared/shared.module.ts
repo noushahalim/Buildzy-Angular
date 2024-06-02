@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ButtonComponent } from './button/button.component';
 import { RouterModule } from '@angular/router';
 import { InputComponent } from './input/input.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -11,12 +12,14 @@ import { InputComponent } from './input/input.component';
   declarations: [
     NavbarComponent,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    SignupComponent
   ],
   exports:[
     NavbarComponent,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,
