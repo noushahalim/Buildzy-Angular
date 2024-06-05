@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,8 @@ export class SignupComponent implements OnInit{
   @Input() imageRotate:string=''
 
   signupForm!:FormGroup
+
+  @Output() formDataSubmitted = new EventEmitter<any>();
 
   showElement() {
     if (!this.signupForm.touched) {
@@ -36,6 +38,7 @@ export class SignupComponent implements OnInit{
   onFormSubmited(){
     
     if (this.signupForm.valid) {
+      this.formDataSubmitted.emit(this.signupForm.value);
       alert('Form submitted successfully!');
     } else {
       console.error('Form is invalid:', this.signupForm.errors);
