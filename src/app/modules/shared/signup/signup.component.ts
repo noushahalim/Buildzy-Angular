@@ -10,6 +10,7 @@ export class SignupComponent implements OnInit{
   @Input() image:string=''
   @Input() title:string=''
   @Input() imageRotate:string=''
+  @Input() backendError:string=''
 
   signupForm!:FormGroup
 
@@ -34,12 +35,12 @@ export class SignupComponent implements OnInit{
   }
 
   
-
+  submitted = false;
   onFormSubmited(){
     
+    this.submitted=true
     if (this.signupForm.valid) {
       this.formDataSubmitted.emit(this.signupForm.value);
-      alert('Form submitted successfully!');
     } else {
       console.error('Form is invalid:', this.signupForm.errors);
     }

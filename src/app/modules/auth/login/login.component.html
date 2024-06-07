@@ -42,7 +42,11 @@
             </div>
             <div class="flex gap-1 items-center">
                 <p>Don't have an account?</p>
-                <shared-button [name]="'SignUp Now'" [style]="'text-[#303771] text-lg font-medium cursor-pointer hover:text-[#7E88E1]'" [routerLink]="'/auth/signup'"></shared-button>
+                <button (click)="signupButtonClicked()" class="text-[#303771] text-lg font-medium cursor-pointer hover:text-[#7E88E1]">SignUp Now</button>
+            </div>
+            <div class="{{signupButton}} flex items-center gap-2">
+                <shared-button [name]="'User'" [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#4CAF50] h-8'" [routerLink]="'/auth/signup'"></shared-button>
+                <shared-button [name]="'Engineer'" [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#7E88E1] h-8'" [routerLink]="'/auth/engineer/signup'"></shared-button>
             </div>
         </div>
         <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center flex items-center justify-center flex-col hidden md:flex">

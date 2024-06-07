@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 export class loginComponent implements OnInit{
     loginForm!:FormGroup
+    signupButton:string='hidden'
     
     ngOnInit() {
         this.loginForm=new FormGroup({
@@ -22,6 +23,13 @@ export class loginComponent implements OnInit{
           alert('Form submitted successfully!');
         } else {
           console.error('Form is invalid:', this.loginForm.errors);
+        }
+      }
+      signupButtonClicked(){
+        if(this.signupButton=='hidden'){
+          this.signupButton='flex'
+        }else{
+          this.signupButton='hidden'
         }
       }
 }

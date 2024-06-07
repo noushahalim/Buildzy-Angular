@@ -6,6 +6,7 @@ import { ClientSignupComponent } from './clientSignup/clientSignup.component';
 import { loginComponent } from './login/login.component';
 import { EngineerSignup } from './engineerSignup/engineerSignup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupOtpComponent } from './signupOtp/signupOtp.component';
 
 
 
@@ -13,13 +14,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ClientSignupComponent,
     loginComponent,
-    EngineerSignup
+    EngineerSignup,
+    SignupOtpComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class AuthModule { }

@@ -5,6 +5,8 @@ import { ButtonComponent } from './button/button.component';
 import { RouterModule } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { OtpComponent } from './otp/otp.component';
 
 
 
@@ -12,17 +14,20 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     NavbarComponent,
     ButtonComponent,
-    SignupComponent
+    SignupComponent,
+    OtpComponent
   ],
   exports:[
     NavbarComponent,
     ButtonComponent,
-    SignupComponent
+    SignupComponent,
+    OtpComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgOtpInputModule
   ]
 })
 export class SharedModule { }
