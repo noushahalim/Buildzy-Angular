@@ -7,6 +7,7 @@ import { loginComponent } from './login/login.component';
 import { EngineerSignup } from './engineerSignup/engineerSignup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupOtpComponent } from './signupOtp/signupOtp.component';
+import { ForgotPasswordComponent } from './forgotPassword/forgotPassword.component';
 
 
 
@@ -15,7 +16,8 @@ import { SignupOtpComponent } from './signupOtp/signupOtp.component';
     ClientSignupComponent,
     loginComponent,
     EngineerSignup,
-    SignupOtpComponent
+    SignupOtpComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,
