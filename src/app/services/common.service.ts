@@ -57,4 +57,10 @@ export class CommonService{
     login(data:loginModel):Observable<any>{
         return this.http.post(this.loginApi,data)
     }
+
+    changeProfile='http://localhost:3000/profileChange'
+
+    profileChange(data:any):Observable<any>{
+        return this.http.post(this.changeProfile,data)
+    }
 }

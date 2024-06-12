@@ -10,9 +10,63 @@
             <shared-button [name]="'Properties'" [style]="style1"></shared-button>
             <shared-button [name]="'About Us'" [style]="style1"></shared-button>
         </div>
-        <div *ngIf="logined" class="w-16 h-16 border border-black rounded-full absolute right-5 md:top-[70px] md:w-12 md:h-12 sm:top-[80px] sm:w-10 sm:h-10 lg:top-[20px]  hidden sm:block">
+        <div *ngIf="logined" (click)="profileClicked()" class="w-16 h-16 border border-black rounded-full absolute right-5 md:top-[70px] md:w-12 md:h-12 sm:top-[80px] sm:w-10 sm:h-10 lg:top-[20px]  hidden sm:block">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 31.25a8.333 8.333 0 1 0 0-16.667a8.333 8.333 0 0 0 0 16.667"/><path stroke="#344054" d="M29.52 29.896a8.23 8.23 0 0 1-9.04 0a14.58 14.58 0 0 0-8.917 8.166a18.75 18.75 0 0 0 26.687.188l.188-.188a14.6 14.6 0 0 0-8.917-8.166"/><path stroke="#306CFE" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/></g></svg>
         </div>
+        <div class="{{profile}} absolute right-3 top-24 sm:top-32 md:top-32 lg:top-20 t-1 w-60 sm:w-72 md:w-80 rounded-md shadow-lg bg-gray-100 ring-1 ring-black ring-opacity-5 overflow-hidden z-10">
+            <div class="py-1">
+              <div class="flex px-4  py-2 text-sm ">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 border border-black rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 31.25a8.333 8.333 0 1 0 0-16.667a8.333 8.333 0 0 0 0 16.667"/><path stroke="#344054" d="M29.52 29.896a8.23 8.23 0 0 1-9.04 0a14.58 14.58 0 0 0-8.917 8.166a18.75 18.75 0 0 0 26.687.188l.188-.188a14.6 14.6 0 0 0-8.917-8.166"/><path stroke="#306CFE" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/></g></svg>
+                </div>
+                <div class="w-5/6 overflow-hidden">
+                    <div class="px-4 text-sm text-gray-800">
+                        NOUSHAHALI
+                      </div>
+                    <div class="px-4 text-sm text-gray-800">
+                      noushahalimanappuram78@gmail.com
+                    </div>
+                </div>
+            </div>
+              <div (click)="changeProfile()" class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
+                Change Profile
+              </div>
+              <hr class="w-[90%] border-[gray] ml-[5%]">
+              <div class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
+                Log out
+              </div>
+            </div>
+          </div>
+          <div class="fixed inset-0 z-50 overflow-auto bg-gray-900 bg-opacity-75 flex items-center justify-center" *ngIf="showChangeProfileModal">
+            <div class="bg-white rounded-lg shadow-lg p-6 max-w-md relative">
+              <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-700" (click)="closeModal()">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="mb-4">
+                <h2 class="text-lg font-semibold">Change Profile Picture</h2>
+              </div>
+              <form [formGroup]="profileChangeForm" (ngSubmit)="submitProfilePicture()">
+                <div class="mb-4">
+                  <label class="block text-gray-700 font-semibold mb-2" for="image-upload">Upload Image</label>
+                  <input class="border border-gray-400 p-2 w-full" id="image-upload" type="file" (change)="onImageUpload($event)" accept="image/*" formControlName="image">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700 font-semibold mb-2" for="image-preview">Preview</label>
+                  <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <img *ngIf="previewImageSrc" [src]="previewImageSrc" class="max-h-full max-w-full">
+                    <span *ngIf="!previewImageSrc" class="text-gray-500">No image selected</span>
+                  </div>
+                </div>
+                <div class="flex justify-end">
+                  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         <div *ngIf="!logined" class="absolute right-5 md:top-[80px] sm:top-[80px] lg:top-[20px]  hidden sm:block">
             <shared-button [name]="'Login'" [style]="style2" [routerLink]="'/auth/login'"></shared-button>
         </div>
@@ -29,7 +83,7 @@
         <div *ngIf="!logined">
             <shared-button [name]="'Login'" [style]="style4" [routerLink]="'/auth/login'"></shared-button>
         </div>
-        <div *ngIf="logined" class="w-8 h-8 border border-black rounded-full">
+        <div *ngIf="logined" (click)="profileClicked()" class="w-8 h-8 border border-black rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 31.25a8.333 8.333 0 1 0 0-16.667a8.333 8.333 0 0 0 0 16.667"/><path stroke="#344054" d="M29.52 29.896a8.23 8.23 0 0 1-9.04 0a14.58 14.58 0 0 0-8.917 8.166a18.75 18.75 0 0 0 26.687.188l.188-.188a14.6 14.6 0 0 0-8.917-8.166"/><path stroke="#306CFE" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/></g></svg>
         </div>
     </div>
