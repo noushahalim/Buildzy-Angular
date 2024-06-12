@@ -35,6 +35,7 @@
                   <div class="w-full flex justify-end">
                         <a routerLink="/auth/forgotPassword" class="text-sm text-[#303771]">Forgot password?</a>
                   </div>
+                  <small class="text-red-600 w-full flex justify-center" *ngIf="backendError">{{backendError}}</small>
                 <button [disabled]="!loginForm.valid" type="submit" class="w-full flex justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'">LOGIN</button>
             </form>
             
