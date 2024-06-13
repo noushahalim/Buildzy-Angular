@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  constructor(private commonService:CommonService, private formBuilder:FormBuilder){}
+  constructor(private commonService:CommonService, private formBuilder:FormBuilder, private route:Router){}
 
   logined:boolean=false
   profileChangeForm!:FormGroup
@@ -80,5 +81,10 @@ export class NavbarComponent implements OnInit{
     else {
       console.error('Form is invalid:', this.profileChangeForm.errors);
     }
+  }
+
+  logout(){
+    localStorage.clear()
+    window.location.reload();
   }
 }
