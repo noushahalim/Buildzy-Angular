@@ -15,8 +15,6 @@ export class JwtInterceptor implements HttpInterceptor {
     const isLoggedIn = this.commonService.token;
 
     if (isLoggedIn) {
-        console.log('here');
-        
       const token = this.commonService.token;
       const authRequest = request.clone({
         setHeaders: {
@@ -25,8 +23,6 @@ export class JwtInterceptor implements HttpInterceptor {
       });
       return next.handle(authRequest);
     } else {
-        console.log('he');
-
       return next.handle(request);
     }
   }

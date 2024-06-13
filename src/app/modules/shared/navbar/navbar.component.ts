@@ -13,6 +13,10 @@ export class NavbarComponent implements OnInit{
 
   logined:boolean=false
   profileChangeForm!:FormGroup
+  profileImage:string=''
+  name:string=''
+  email:string=''
+  buttonDisabled:boolean=false
   
   ngOnInit() {
     if(this.commonService.token){
@@ -21,8 +25,11 @@ export class NavbarComponent implements OnInit{
     this.profileChangeForm = this.formBuilder.group({
       image:[[],Validators.required]
     })
-
-
+    if(this.commonService.profileImage){
+      this.profileImage=this.commonService.profileImage
+    }
+    this.name= this.commonService.fullName
+    this.email= this.commonService.email
 
   }
   style1:string='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl'
@@ -44,11 +51,27 @@ export class NavbarComponent implements OnInit{
     }
   }
   profileClicked(){
-    if(this.profile=='hidden'){
-      this.profile='block'
+    if(this.name && this.email){
+      if(this.profile=='hidden'){
+        this.profile='block'
+      }
+      else{
+        this.profile='hidden'
+      }
     }
     else{
-      this.profile='hidden'
+      this.commonService.profileDetails().subscribe(
+        (response)=>{
+          this.commonService.fullName = response.fullName;
+          this.commonService.email = response.email;
+          this.name = response.fullName;
+          this.email = response.email;
+          this.profile='block'
+        },
+        (error:any)=>{
+          console.log(error)
+        }
+      )
     }
   }
   changeProfile(){
@@ -65,16 +88,22 @@ export class NavbarComponent implements OnInit{
   }
   submitProfilePicture(){
     if (this.profileChangeForm.valid){
+      this.buttonDisabled=true
       const data= new FormData()
       data.append('image',this.imageFile)
       
       this.commonService.profileChange(data).subscribe(
         (response)=>{
           console.log('success')
+          localStorage.setItem('profileImage',response.profileImage)
+          this.commonService.profileImage=response.profileImage
+          this.profileImage=response.profileImage
           this.showChangeProfileModal=false
+          this.buttonDisabled=false
         },
         (error:any)=>{
           console.log(error)
+          this.buttonDisabled=false
         }
       )
     }

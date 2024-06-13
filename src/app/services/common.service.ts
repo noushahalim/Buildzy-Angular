@@ -14,6 +14,8 @@ export class CommonService{
     token=localStorage.getItem('token')
     id=''
     email=''
+    profileImage=localStorage.getItem('profileImage')
+    fullName=''
 
     signupOtpVerificationApi='http://localhost:3000/signupOtpVerification'
 
@@ -58,9 +60,15 @@ export class CommonService{
         return this.http.post(this.loginApi,data)
     }
 
-    changeProfile='http://localhost:3000/profileChange'
+    changeProfileApi='http://localhost:3000/profileChange'
 
     profileChange(data:any):Observable<any>{
-        return this.http.post(this.changeProfile,data)
+        return this.http.post(this.changeProfileApi,data)
+    }
+
+    profileDetailsApi='http://localhost:3000/profileDetails'
+
+    profileDetails():Observable<any>{
+        return this.http.get(this.profileDetailsApi)
     }
 }

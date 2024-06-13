@@ -31,6 +31,10 @@ export class loginComponent implements OnInit{
             (response)=>{
               localStorage.setItem('token',response.token)
               this.commonService.token=response.token
+              if(response.profileImage){
+                localStorage.setItem('profileImage',response.profileImage)
+                this.commonService.profileImage=response.profileImage
+              }
               if(response.role=='client'){
                 this.route.navigate(['/'])
               }
