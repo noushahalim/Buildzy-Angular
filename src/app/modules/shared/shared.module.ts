@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { OtpComponent } from './otp/otp.component';
+import { ComponyRegistrationFormComponent } from './compony-registration-form/compony-registration-form.component';
 
 
 
@@ -15,13 +16,15 @@ import { OtpComponent } from './otp/otp.component';
     NavbarComponent,
     ButtonComponent,
     SignupComponent,
-    OtpComponent
+    OtpComponent,
+    ComponyRegistrationFormComponent
   ],
   exports:[
     NavbarComponent,
     ButtonComponent,
     SignupComponent,
-    OtpComponent
+    OtpComponent,
+    ComponyRegistrationFormComponent
   ],
   imports: [
     CommonModule,

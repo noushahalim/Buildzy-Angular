@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router, Routes } from "@angular/router";
+import { Router } from "@angular/router";
 import { loginModel } from "src/app/models/login";
 import { CommonService } from "src/app/services/common.service";
+import { EngineerService } from "src/app/services/engineer.service";
 
 @Component({
     selector:'auth-login',
@@ -11,7 +12,7 @@ import { CommonService } from "src/app/services/common.service";
 
 export class loginComponent implements OnInit{
 
-  constructor(private commonService:CommonService, private route: Router){}
+  constructor(private commonService:CommonService, private engineerService:EngineerService , private route: Router){}
     loginForm!:FormGroup
     signupButton:string='hidden'
     backendError:string=''
@@ -29,17 +30,25 @@ export class loginComponent implements OnInit{
           const datas:loginModel = this.loginForm.value as loginModel
           this.commonService.login(datas).subscribe(
             (response)=>{
-              localStorage.setItem('token',response.token)
-              this.commonService.token=response.token
               if(response.profileImage){
                 localStorage.setItem('profileImage',response.profileImage)
                 this.commonService.profileImage=response.profileImage
               }
               if(response.role=='client'){
+                localStorage.setItem('token',response.token)
+                this.commonService.token=response.token
                 this.route.navigate(['/'])
               }
               else if(response.role=='engineer'){
-                this.route.navigate(['/engineer'])
+                if(response.registered==true){
+                  localStorage.setItem('token',response.token)
+                  this.commonService.token=response.token
+                  this.route.navigate(['/engineer'])
+                }
+                else{
+                  this.engineerService.id= response.id
+                  this.route.navigate(['/engineer/componyRegistration'])
+                }
               }
             },
             (error:any)=>{
