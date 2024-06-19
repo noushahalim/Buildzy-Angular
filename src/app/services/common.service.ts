@@ -12,6 +12,7 @@ export class CommonService{
     constructor(private http:HttpClient, private router:Router){}
     
     token=localStorage.getItem('token')
+    accessType=localStorage.getItem('accessType')
     id=''
     email=''
     profileImage=localStorage.getItem('profileImage')

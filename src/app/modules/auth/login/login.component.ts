@@ -36,13 +36,17 @@ export class loginComponent implements OnInit{
               }
               if(response.role=='client'){
                 localStorage.setItem('token',response.token)
+                localStorage.setItem('accessType',response.role)
                 this.commonService.token=response.token
+                this.commonService.accessType=response.role
                 this.route.navigate(['/'])
               }
               else if(response.role=='engineer'){
                 if(response.registered==true){
                   localStorage.setItem('token',response.token)
+                  localStorage.setItem('accessType',response.role)
                   this.commonService.token=response.token
+                  this.commonService.accessType=response.role
                   this.route.navigate(['/engineer'])
                 }
                 else{

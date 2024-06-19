@@ -15,7 +15,23 @@ export const engineerGuard: CanActivateFn = (route, state) => {
     }
   }
   else{
-    return true;
+    const token = localStorage.getItem('token')
+    const accessType = localStorage.getItem('accessType')
+    if(!token||!accessType){
+      router.navigate(['/auth/login'])
+      return false;
+    }
+    else if(accessType=='client'){
+      router.navigate(['/'])
+      return false;
+    }
+    else if(accessType=='engineer'){
+      return true;
+    }
+    else{
+      router.navigate(['/'])
+      return false;
+    }
   }
   
 };

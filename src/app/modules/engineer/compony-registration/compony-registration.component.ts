@@ -19,7 +19,9 @@ export class ComponyRegistrationComponent {
     this.engineerService.componyReg(datas).subscribe(
       (response)=>{
         localStorage.setItem('token',response.token)
+        localStorage.setItem('accessType',response.role)
         this.commonService.token=response.token
+        this.commonService.accessType=response.role
         this.engineerService.id= ''
         this.router.navigate(['/engineer'])
         
