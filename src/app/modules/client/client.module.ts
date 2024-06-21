@@ -4,11 +4,13 @@ import { SharedModule } from "../shared/shared.module";
 import { CommonModule } from "@angular/common";
 import { ClientRoutingModule } from "./client-routing.module";
 import { EngineersListComponent } from './engineers-list/engineers-list.component';
+import { ComponyDetailsComponent } from './compony-details/compony-details.component';
 
 @NgModule({
     declarations:[
         HomeComponent,
-        EngineersListComponent
+        EngineersListComponent,
+        ComponyDetailsComponent
     ],
     imports:[
         CommonModule,

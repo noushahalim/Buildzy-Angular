@@ -32,6 +32,6 @@ export class EngineersListComponent implements OnInit{
   }
 
   componyDetails(id:any){
-    
+    this.router.navigate(['/componyDetails',id])
   }
 }

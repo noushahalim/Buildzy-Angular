@@ -24,4 +24,9 @@ export class ClientService{
     componyDatasGet():Observable<any>{
         return this.http.get(this.componyDatasApi)
     }
+
+    componyDetailsGet(id:string):Observable<any>{
+        const componyDetailsApi=`http://localhost:3000/client/componyDetails/${id}`
+        return this.http.get(componyDetailsApi)
+    }
 }
