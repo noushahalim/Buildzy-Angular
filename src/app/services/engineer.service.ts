@@ -27,4 +27,10 @@ export class EngineerService{
         
         return this.http.post(componyRegApi,data)
     }
+
+    componyDetails():Observable<any>{
+        const componyDetailsApi='http://localhost:3000/engineer/componyDetails'
+
+        return this.http.get(componyDetailsApi)
+    }
 }

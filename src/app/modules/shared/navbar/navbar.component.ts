@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit{
   name:string=''
   email:string=''
   buttonDisabled:boolean=false
+  accessType:string | null=''
   
   ngOnInit() {
     if(this.commonService.token){
@@ -30,7 +31,7 @@ export class NavbarComponent implements OnInit{
     }
     this.name= this.commonService.fullName
     this.email= this.commonService.email
-
+    this.accessType = localStorage.getItem('accessType')
   }
   style1:string='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl'
   style2:string='rounded pl-4 pr-4 h-10 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 md:text-base lg:text-lg xl:text-xl'
@@ -110,6 +111,10 @@ export class NavbarComponent implements OnInit{
     else {
       console.error('Form is invalid:', this.profileChangeForm.errors);
     }
+  }
+
+  myCompony(){
+    this.route.navigate(['/engineer/myCompony'])
   }
 
   logout(){

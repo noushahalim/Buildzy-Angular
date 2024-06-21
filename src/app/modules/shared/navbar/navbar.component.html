@@ -30,8 +30,12 @@
                     </div>
                 </div>
             </div>
-              <div (click)="changeProfile()" class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
-                Change Profile
+            <div (click)="changeProfile()" class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
+              Change Profile
+            </div>
+            <hr *ngIf="accessType=='engineer'" class="w-[90%] border-[gray] ml-[5%]">
+              <div *ngIf="accessType=='engineer'" (click)="myCompony()" class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
+                My Compony
               </div>
               <hr class="w-[90%] border-[gray] ml-[5%]">
               <div (click)="logout()" class="px-4 py-2 text-sm text-gray-800 hover:bg-gray-400 hover:text-white cursor-pointer">
