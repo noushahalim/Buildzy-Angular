@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ComponyRegistrationComponent } from './compony-registration/compony-registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyComponyComponent } from './my-compony/my-compony.component';
+import { ComponyEditComponent } from './compony-edit/compony-edit.component';
 
 
 
@@ -13,7 +14,8 @@ import { MyComponyComponent } from './my-compony/my-compony.component';
   declarations: [
     HomeComponent,
     ComponyRegistrationComponent,
-    MyComponyComponent
+    MyComponyComponent,
+    ComponyEditComponent
   ],
   imports: [
     CommonModule,

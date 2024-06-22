@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { EngineersListComponent } from "./engineers-list/engineers-list.component";
 import { ComponyDetailsComponent } from "./compony-details/compony-details.component";
-import { ComponyDetailsResolver } from "src/app/resolver/componyDetailsResolver/compony-details.resolver";
+import { ComponyDetailsResolver } from "src/app/resolver/compony-details.resolver";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},

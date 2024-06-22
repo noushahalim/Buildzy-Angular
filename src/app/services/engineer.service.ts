@@ -33,4 +33,10 @@ export class EngineerService{
 
         return this.http.get(componyDetailsApi)
     }
+
+    componyUp(data:componyRegistration):Observable<any>{
+        const componyUpApi='http://localhost:3000/engineer/componyUpdation'
+        
+        return this.http.post(componyUpApi,data)
+    }
 }

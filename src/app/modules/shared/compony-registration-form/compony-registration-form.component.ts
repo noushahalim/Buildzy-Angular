@@ -30,22 +30,43 @@ export class ComponyRegistrationFormComponent implements OnInit{
   ngOnInit() {
     this.statesAndDistricts = this.statesDistrictsService.statesAndDistricts;
     this.states = this.statesAndDistricts.map(state => state.state);
-
-    this.registerForm = this.formBuilder.group({
-      componyName:['' ,[Validators.required]],
-      image:[[],[Validators.required]],
-      componyEmail:['',[Validators.required,Validators.email]],
-      componyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
-      experiance:[null,[Validators.required]],
-      state:['',[Validators.required]],
-      district:['',[Validators.required]],
-      description:['',[Validators.required]]
-    })
-    this.componyDetails=this.engineerService.componyData
-    if (this.componyDetails) {
-      const { image, ...otherDetails } = this.componyDetails; 
-      this.imageUrl = image; 
-      this.registerForm.patchValue(otherDetails); 
+    if(this.isEditing){
+      this.registerForm = this.formBuilder.group({
+        componyName:['' ,[Validators.required]],
+        image:[[]],
+        componyEmail:['',[Validators.required,Validators.email]],
+        componyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
+        experiance:[null,[Validators.required]],
+        state:['',[Validators.required]],
+        district:['',[Validators.required]],
+        description:['',[Validators.required]]
+      })  
+    }
+    else{
+      this.registerForm = this.formBuilder.group({
+        componyName:['' ,[Validators.required]],
+        image:[[],[Validators.required]],
+        componyEmail:['',[Validators.required,Validators.email]],
+        componyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
+        experiance:[null,[Validators.required]],
+        state:['',[Validators.required]],
+        district:['',[Validators.required]],
+        description:['',[Validators.required]]
+      })
+    }
+    
+    if (this.isEditing) {
+      this.engineerService.componyDetails().subscribe(
+        (response)=>{
+          this.componyDetails = response
+          const { logo, ...otherDetails } = this.componyDetails; 
+          this.imageUrl = logo; 
+          this.registerForm.patchValue(otherDetails); 
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
     }
     
   }
@@ -67,8 +88,8 @@ export class ComponyRegistrationFormComponent implements OnInit{
     
     if(this.registerForm.valid){
       this.emitData();
-    } else if(!this.registerForm.valid && this.isEditing) {
-      this.emitData();
+    } else {
+      console.log('Form not valid');
     }
   }
 
