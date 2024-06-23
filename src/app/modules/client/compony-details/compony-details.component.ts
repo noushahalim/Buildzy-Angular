@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
   selector: 'app-compony-details',
@@ -9,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ComponyDetailsComponent implements OnInit{
   componyDetails: any;
   error: any;
+  connectionStatus: boolean = false
 
-  constructor(private route:ActivatedRoute){}
+  constructor(private clientService:ClientService , private route:ActivatedRoute , private router:Router){}
 
   ngOnInit() {
     this.route.data.subscribe(
@@ -21,5 +23,26 @@ export class ComponyDetailsComponent implements OnInit{
         this.error = error
       }
     )
+    this.clientService.componyChats(this.componyDetails.engineerId).subscribe(
+      (response)=>{
+        this.connectionStatus = true
+      }
+    )
+    
+  }
+
+  connectNow(){
+    this.clientService.componyConnect(this.componyDetails.engineerId).subscribe(
+      (response)=>{
+        this.connectionStatus = true
+      },
+      (error)=>{
+        console.log('error while commect',error);
+      }
+    )
+  }
+
+  messageNow(){
+    this.router.navigate(['/chatDetails',this.componyDetails.engineerId])
   }
 }

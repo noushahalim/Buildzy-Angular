@@ -29,4 +29,14 @@ export class ClientService{
         const componyDetailsApi=`http://localhost:3000/client/componyDetails/${id}`
         return this.http.get(componyDetailsApi)
     }
+
+    componyConnect(id:string):Observable<any>{
+        const componyConnectApi=`http://localhost:3000/client/componyConnect/${id}`
+        return this.http.get(componyConnectApi)
+    }
+
+    componyChats(id:string):Observable<any>{
+        const componyChatsApi=`http://localhost:3000/client/componyChats/${id}`
+        return this.http.get(componyChatsApi)
+    }
 }

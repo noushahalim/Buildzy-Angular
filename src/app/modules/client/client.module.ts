@@ -5,12 +5,14 @@ import { CommonModule } from "@angular/common";
 import { ClientRoutingModule } from "./client-routing.module";
 import { EngineersListComponent } from './engineers-list/engineers-list.component';
 import { ComponyDetailsComponent } from './compony-details/compony-details.component';
+import { ClientchatPageComponent } from './clientchat-page/clientchat-page.component';
 
 @NgModule({
     declarations:[
         HomeComponent,
         EngineersListComponent,
-        ComponyDetailsComponent
+        ComponyDetailsComponent,
+        ClientchatPageComponent
     ],
     imports:[
         CommonModule,
