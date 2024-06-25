@@ -7,6 +7,7 @@ import { ComponyRegistrationComponent } from './compony-registration/compony-reg
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyComponyComponent } from './my-compony/my-compony.component';
 import { ComponyEditComponent } from './compony-edit/compony-edit.component';
+import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-page.component';
 
 
 
@@ -15,7 +16,8 @@ import { ComponyEditComponent } from './compony-edit/compony-edit.component';
     HomeComponent,
     ComponyRegistrationComponent,
     MyComponyComponent,
-    ComponyEditComponent
+    ComponyEditComponent,
+    EngineerChatPageComponent
   ],
   imports: [
     CommonModule,

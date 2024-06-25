@@ -12,15 +12,25 @@ export class ChatService {
     this.socket = io('http://localhost:3000')
   }
 
+  register(clientId:string) {
+    if (this.socket) {
+      this.socket.emit('register', clientId);
+    }
+  }
+
   sendMessage(message: any) {
-    this.socket.emit('sendMessage', message);
+    if (this.socket) {
+      this.socket.emit('sendMessage', message);
+    }
   }
 
   onMessage(): Observable<any> {
     return new Observable(observer => {
-      this.socket.on('recivedMessage', (message) => {
-        observer.next(message);
-      });
+      if (this.socket) {
+        this.socket.on('receivedMessage', (message) => {
+          observer.next(message);
+        });
+      }
     });
   }
 }

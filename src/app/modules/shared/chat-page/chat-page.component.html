@@ -7,16 +7,16 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48"><path fill="none" stroke="blue" stroke-linejoin="round" stroke-width="4" d="M44 40.836c-4.893-5.973-9.238-9.362-13.036-10.168c-3.797-.805-7.412-.927-10.846-.365V41L4 23.545L20.118 7v10.167c6.349.05 11.746 2.328 16.192 6.833c4.445 4.505 7.009 10.117 7.69 16.836Z" clip-rule="evenodd"/></svg>
                 </div>
                 <div class="w-14 h-14 rounded-full bg-green-200 flex items-center justify-center overflow-hidden">
-                    <img class="w-14 h-14 object-cover" src="{{componyDatas.logo}}" alt="">
+                    <img class="w-14 h-14 object-cover" src="{{receiverDatas.logo||receiverDatas.profile}}" alt="">
                 </div>
-                <div class="w-[70%] h-full ml-1 overflow-hidden text-2xl font-semibold flex items-center pl-2">{{componyDatas.componyName}}</div>
+                <div class="w-[70%] h-full ml-1 overflow-hidden text-2xl font-semibold flex items-center pl-2">{{receiverDatas.componyName||receiverDatas.fullName}}</div>
                 <div *ngIf="connected" class="border-l border-green-700  w-[15%] h-full flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="none" stroke="blue" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15.75v-7.5a2 2 0 0 1 2-2h8.5a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm17.168-8.759l-4 3.563a.5.5 0 0 0-.168.373v1.778a.5.5 0 0 0 .168.373l4 3.563a.5.5 0 0 0 .832-.374V7.365a.5.5 0 0 0-.832-.374Z"/></svg>
                 </div>
             </div>
             <div class="w-[98%] ml-[1%] h-[78%] pt-1 overflow-y-scroll">
                 <ng-container *ngFor="let message of messages" >
-                    <div [ngClass]="{'justify-start':message.sender===sender,'justify-end':message.sender===reciver}" class="w-full flex">
+                    <div [ngClass]="{'justify-start':message.sender===receiver,'justify-end':message.sender===sender}" class="w-full flex">
                         <div *ngIf="message.message" class="w-fit max-w-[80%] bg-white pl-1 pr-1 mb-2 border border-green-500 text-lg text-pretty rounded">
                             {{message.message}}
                         </div>
