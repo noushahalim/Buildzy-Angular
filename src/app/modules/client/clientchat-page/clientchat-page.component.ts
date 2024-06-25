@@ -12,6 +12,8 @@ export class ClientchatPageComponent implements OnInit{
 
   engineerId:string=''
   componyDatas:any =''
+  client:string =''
+  engineer:string =''
   chats:any =''
   connected:boolean =false
 
@@ -24,16 +26,19 @@ export class ClientchatPageComponent implements OnInit{
       (response)=>{
         this.chats=response.chats
         this.componyDatas= response.compony
+        this.engineer= this.componyDatas.engineerId
+        this.client= response.client
+        if(this.chats){
+          if(this.chats.status==true){
+            this.connected=true
+          }
+        }
       },
       (error:any)=>{
         console.log('error while chats loading: ',error)
       }
     )
 
-    if(this.chats){
-      if(this.chats.status==true){
-        this.connected=true
-      }
-    }
+    
   }
 }
