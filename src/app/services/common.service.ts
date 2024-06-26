@@ -72,4 +72,10 @@ export class CommonService{
     profileDetails():Observable<any>{
         return this.http.get(this.profileDetailsApi)
     }
+
+    chatSave(message:any):Observable<any>{
+        const chatSaveApi='http://localhost:3000/chatSave'
+
+        return this.http.post(chatSaveApi,message)
+    }
 }

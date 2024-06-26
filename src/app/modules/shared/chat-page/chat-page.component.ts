@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'shared-chat-page',
@@ -17,7 +18,7 @@ export class ChatPageComponent implements OnInit , OnChanges{
   chatSessions:{[key:string] :any[]}={};
   activeChatKey:string = '';
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService , private commonService: CommonService) {}
 
   ngOnInit() {
     this.chatService.connect();
@@ -42,6 +43,16 @@ export class ChatPageComponent implements OnInit , OnChanges{
       this.activeChatKey = this.getChatKey(this.sender,this.receiver);
       this.messages = this.chatSessions[this.activeChatKey] || [];
     }
+    if (changes['chats'] && changes['chats'].currentValue) {
+      const chatKey = this.getChatKey(this.chats.clientId, this.chats.engineerId);
+      if (!this.chatSessions[chatKey]) {
+        this.chatSessions[chatKey] = [];
+      }
+      this.chatSessions[chatKey] = this.chats.messages;
+      if (chatKey === this.activeChatKey) {
+        this.messages = [...this.chats.messages];
+      }
+    }
   }
 
   getChatKey(sender:string,receiver:string):string{
@@ -57,6 +68,13 @@ export class ChatPageComponent implements OnInit , OnChanges{
     };
     
     this.chatService.sendMessage(message);
+    this.commonService.chatSave(message).subscribe(
+      (res)=>{},
+      (error)=>{
+        console.log(error);
+        
+      }
+    )
     if(!this.chatSessions[this.activeChatKey]){
       this.chatSessions[this.activeChatKey]= [];
     }
