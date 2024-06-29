@@ -5,12 +5,14 @@ import { EngineersListComponent } from "./engineers-list/engineers-list.componen
 import { ComponyDetailsComponent } from "./compony-details/compony-details.component";
 import { ComponyDetailsResolver } from "src/app/resolver/compony-details.resolver";
 import { ClientchatPageComponent } from "./clientchat-page/clientchat-page.component";
+import { ClientChatsListComponent } from "./client-chats-list/client-chats-list.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'engineers',component:EngineersListComponent},
     {path:'componyDetails/:id',component:ComponyDetailsComponent, resolve:{componyDetails:ComponyDetailsResolver}},
-    {path:'chatDetails/:id',component:ClientchatPageComponent}
+    {path:'chatDetails/:id',component:ClientchatPageComponent},
+    {path:'chats',component:ClientChatsListComponent}
 ]
 
 @NgModule({

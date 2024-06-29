@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { componyRegistration } from 'src/app/models/componyRegistration';
-import { CommonService } from 'src/app/services/common.service';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({

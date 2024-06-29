@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MyComponyComponent } from './my-compony/my-compony.component';
 import { ComponyEditComponent } from './compony-edit/compony-edit.component';
 import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-page.component';
+import { EngineerChatsListComponent } from './engineer-chats-list/engineer-chats-list.component';
 
 
 
@@ -17,7 +18,8 @@ import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-pa
     ComponyRegistrationComponent,
     MyComponyComponent,
     ComponyEditComponent,
-    EngineerChatPageComponent
+    EngineerChatPageComponent,
+    EngineerChatsListComponent
   ],
   imports: [
     CommonModule,

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
-  selector: 'app-client-chat-page',
+  selector: 'app-engineer-chat-page',
   templateUrl: './engineer-chat-page.component.html',
   styleUrls: ['./engineer-chat-page.component.css']
 })
