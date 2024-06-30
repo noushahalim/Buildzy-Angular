@@ -49,4 +49,9 @@ export class EngineerService{
         const clientChatsListApi='http://localhost:3000/engineer/clientChatsList/'
         return this.http.get(clientChatsListApi)
     }
+
+    requestAccept(id:string):Observable<any>{
+        const requestAcceptApi=`http://localhost:3000/engineer/requestAccept/${id}`
+        return this.http.get(requestAcceptApi)
+    }
 }

@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { CommonService } from 'src/app/services/common.service';
+import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
   selector: 'shared-chat-page',
@@ -11,6 +12,7 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
   @Input() receiverDatas:any =''
   @Input() chats:any =''
   @Input() connected:boolean =false
+  @Input() role:string=''
   @Input() sender:string=''
   @Input() receiver:string=''
   newMessage:string=''
@@ -20,7 +22,7 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
 
   @ViewChild('chatWindow') chatWindow!: ElementRef;
 
-  constructor(private chatService: ChatService , private commonService: CommonService) {}
+  constructor(private chatService: ChatService , private commonService: CommonService , private engineerService:EngineerService) {}
 
   ngOnInit() {
     this.chatService.connect();
@@ -96,5 +98,16 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
       const chatContainer = this.chatWindow.nativeElement;
       chatContainer.scrollTop = chatContainer.scrollHeight;
     }
+  }
+
+  requestAccept(id:string){
+    this.engineerService.requestAccept(id).subscribe(
+      (response)=>{
+        this.connected=true
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 }

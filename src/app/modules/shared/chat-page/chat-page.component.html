@@ -32,9 +32,14 @@
                     <svg (click)="sendMessage()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="none" stroke="blue" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m14 10l-3 3m9.288-9.969a.535.535 0 0 1 .68.681l-5.924 16.93a.535.535 0 0 1-.994.04l-3.219-7.242a.534.534 0 0 0-.271-.271l-7.242-3.22a.535.535 0 0 1 .04-.993l16.93-5.925Z"/></svg>
                 </div>
             </div>
-            <div *ngIf="!connected" class="w-full h-[10%] border-t border-green-700 flex items-center justify-center">
+            <div *ngIf="!connected && !role" class="w-full h-[10%] border-t border-green-700 flex items-center justify-center">
                 <div class="flex items-center text-xl bg-gray-800 text-white p-2 rounded-[20px]">
                     Requested
+                </div>
+            </div>
+            <div *ngIf="!connected && role=='engineer'" class="w-full h-[10%] border-t border-green-700 flex items-center justify-center">
+                <div (click)="requestAccept(receiverDatas._id)" class="flex items-center text-xl cursor-pointer bg-green-800 text-white p-2 rounded-[20px]">
+                    Accept
                 </div>
             </div>
         </div>
