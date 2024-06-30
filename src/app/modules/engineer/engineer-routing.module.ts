@@ -5,13 +5,15 @@ import { ComponyRegistrationComponent } from "./compony-registration/compony-reg
 import { MyComponyComponent } from "./my-compony/my-compony.component";
 import { ComponyEditComponent } from "./compony-edit/compony-edit.component";
 import { EngineerChatPageComponent } from "./engineer-chat-page/engineer-chat-page.component";
+import { EngineerChatsListComponent } from "./engineer-chats-list/engineer-chats-list.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'componyRegistration',component:ComponyRegistrationComponent},
     {path:'componyEdit',component:ComponyEditComponent},
     {path:'myCompony',component:MyComponyComponent},
-    {path:'chatDetails/:id',component:EngineerChatPageComponent}
+    {path:'chatDetails/:id',component:EngineerChatPageComponent},
+    {path:'chats',component:EngineerChatsListComponent}
 ]
 
 @NgModule({
