@@ -9,7 +9,6 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { OtpComponent } from './otp/otp.component';
 import { ComponyRegistrationFormComponent } from './compony-registration-form/compony-registration-form.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
-import { ChatsListComponent } from './chats-list/chats-list.component';
 
 
 
@@ -20,8 +19,7 @@ import { ChatsListComponent } from './chats-list/chats-list.component';
     SignupComponent,
     OtpComponent,
     ComponyRegistrationFormComponent,
-    ChatPageComponent,
-    ChatsListComponent
+    ChatPageComponent
   ],
   exports:[
     NavbarComponent,
@@ -29,8 +27,7 @@ import { ChatsListComponent } from './chats-list/chats-list.component';
     SignupComponent,
     OtpComponent,
     ComponyRegistrationFormComponent,
-    ChatPageComponent,
-    ChatsListComponent
+    ChatPageComponent
   ],
   imports: [
     CommonModule,

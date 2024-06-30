@@ -39,4 +39,9 @@ export class ClientService{
         const componyChatsApi=`http://localhost:3000/client/componyChats/${id}`
         return this.http.get(componyChatsApi)
     }
+
+    componyChatsList():Observable<any>{
+        const componyChatsListApi='http://localhost:3000/client/componyChatsList/'
+        return this.http.get(componyChatsListApi)
+    }
 }

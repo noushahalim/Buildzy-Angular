@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -7,7 +7,7 @@ import { CommonService } from 'src/app/services/common.service';
   templateUrl: './chat-page.component.html',
   styleUrls: ['./chat-page.component.css']
 })
-export class ChatPageComponent implements OnInit , OnChanges{
+export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
   @Input() receiverDatas:any =''
   @Input() chats:any =''
   @Input() connected:boolean =false
@@ -17,6 +17,8 @@ export class ChatPageComponent implements OnInit , OnChanges{
   messages :any[]=[]
   chatSessions:{[key:string] :any[]}={};
   activeChatKey:string = '';
+
+  @ViewChild('chatWindow') chatWindow!: ElementRef;
 
   constructor(private chatService: ChatService , private commonService: CommonService) {}
 
@@ -32,6 +34,7 @@ export class ChatPageComponent implements OnInit , OnChanges{
       if(chatKey === this.activeChatKey){
         this.messages.push(message);
       }
+      this.scrollToBottom();
     });
   }
 
@@ -53,6 +56,11 @@ export class ChatPageComponent implements OnInit , OnChanges{
         this.messages = [...this.chats.messages];
       }
     }
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   getChatKey(sender:string,receiver:string):string{
@@ -81,5 +89,12 @@ export class ChatPageComponent implements OnInit , OnChanges{
     this.chatSessions[this.activeChatKey].push(message);
     this.messages.push(message);
     this.newMessage = '';
+  }
+
+  scrollToBottom() {
+    if (this.chatWindow) {
+      const chatContainer = this.chatWindow.nativeElement;
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
   }
 }
