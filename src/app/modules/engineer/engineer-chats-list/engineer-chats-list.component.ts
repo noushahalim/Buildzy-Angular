@@ -8,7 +8,7 @@ import { EngineerService } from 'src/app/services/engineer.service';
 })
 export class EngineerChatsListComponent implements OnInit{
   constructor(private engineerService:EngineerService){}
-  clientList:any
+  clientList:any=[]
 
   ngOnInit() {
     this.engineerService.clientChatsList().subscribe(

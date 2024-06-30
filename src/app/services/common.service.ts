@@ -78,4 +78,10 @@ export class CommonService{
 
         return this.http.post(chatSaveApi,message)
     }
+
+    notificationCount():Observable<any>{
+        const notificationCount='http://localhost:3000/notificationCount'
+
+        return this.http.get(notificationCount)
+    }
 }

@@ -18,10 +18,19 @@ export class NavbarComponent implements OnInit{
   email:string=''
   buttonDisabled:boolean=false
   accessType:string | null=''
+  notificationCount=0
   
   ngOnInit() {
     if(this.commonService.token){
       this.logined=true
+      this.commonService.notificationCount().subscribe(
+        (response)=>{
+          this.notificationCount=response
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
     }
     this.profileChangeForm = this.formBuilder.group({
       image:[[],Validators.required]

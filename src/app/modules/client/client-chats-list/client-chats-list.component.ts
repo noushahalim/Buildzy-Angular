@@ -8,7 +8,7 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class ClientChatsListComponent implements OnInit{
   constructor(private clientService:ClientService){}
-  componyList:any
+  componyList:any=[]
 
   ngOnInit() {
     this.clientService.componyChatsList().subscribe(
