@@ -122,8 +122,8 @@ export class NavbarComponent implements OnInit{
     }
   }
 
-  myCompony(){
-    this.route.navigate(['/engineer/myCompony'])
+  myCompany(){
+    this.route.navigate(['/engineer/myCompany'])
   }
 
   logout(){

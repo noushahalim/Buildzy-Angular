@@ -7,7 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { OtpComponent } from './otp/otp.component';
-import { ComponyRegistrationFormComponent } from './compony-registration-form/compony-registration-form.component';
+import { CompanyRegistrationFormComponent } from './company-registration-form/company-registration-form.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 
 
@@ -18,7 +18,7 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     ButtonComponent,
     SignupComponent,
     OtpComponent,
-    ComponyRegistrationFormComponent,
+    CompanyRegistrationFormComponent,
     ChatPageComponent
   ],
   exports:[
@@ -26,7 +26,7 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     ButtonComponent,
     SignupComponent,
     OtpComponent,
-    ComponyRegistrationFormComponent,
+    CompanyRegistrationFormComponent,
     ChatPageComponent
   ],
   imports: [

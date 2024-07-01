@@ -5,11 +5,11 @@ import { StatesDistrictsService } from 'src/app/services/statesDistricts.service
 import { State } from 'src/app/models/statesAndDistricts';
 
 @Component({
-  selector: 'shared-compony-registration-form',
-  templateUrl: './compony-registration-form.component.html',
-  styleUrls: ['./compony-registration-form.component.css']
+  selector: 'shared-company-registration-form',
+  templateUrl: './company-registration-form.component.html',
+  styleUrls: ['./company-registration-form.component.css']
 })
-export class ComponyRegistrationFormComponent implements OnInit{
+export class CompanyRegistrationFormComponent implements OnInit{
 
   registerForm!:FormGroup
   constructor(private formBuilder:FormBuilder , private engineerService:EngineerService , private statesDistrictsService:StatesDistrictsService){}
@@ -25,17 +25,17 @@ export class ComponyRegistrationFormComponent implements OnInit{
   
 
   @Output() registerData = new EventEmitter<any>
-   componyDetails: any;
+   companyDetails: any;
 
   ngOnInit() {
     this.statesAndDistricts = this.statesDistrictsService.statesAndDistricts;
     this.states = this.statesAndDistricts.map(state => state.state);
     if(this.isEditing){
       this.registerForm = this.formBuilder.group({
-        componyName:['' ,[Validators.required]],
+        companyName:['' ,[Validators.required]],
         image:[[]],
-        componyEmail:['',[Validators.required,Validators.email]],
-        componyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
+        companyEmail:['',[Validators.required,Validators.email]],
+        companyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
         experiance:[null,[Validators.required]],
         state:['',[Validators.required]],
         district:['',[Validators.required]],
@@ -44,10 +44,10 @@ export class ComponyRegistrationFormComponent implements OnInit{
     }
     else{
       this.registerForm = this.formBuilder.group({
-        componyName:['' ,[Validators.required]],
+        companyName:['' ,[Validators.required]],
         image:[[],[Validators.required]],
-        componyEmail:['',[Validators.required,Validators.email]],
-        componyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
+        companyEmail:['',[Validators.required,Validators.email]],
+        companyMobile:[null,[Validators.required,Validators.pattern('^[0-9]{10}$')]],
         experiance:[null,[Validators.required]],
         state:['',[Validators.required]],
         district:['',[Validators.required]],
@@ -56,10 +56,10 @@ export class ComponyRegistrationFormComponent implements OnInit{
     }
     
     if (this.isEditing) {
-      this.engineerService.componyDetails().subscribe(
+      this.engineerService.companyDetails().subscribe(
         (response)=>{
-          this.componyDetails = response
-          const { logo, ...otherDetails } = this.componyDetails; 
+          this.companyDetails = response
+          const { logo, ...otherDetails } = this.companyDetails; 
           this.imageUrl = logo; 
           this.registerForm.patchValue(otherDetails); 
         },
@@ -98,9 +98,9 @@ export class ComponyRegistrationFormComponent implements OnInit{
     if(this.imageFile) {
       formData.append('image',this.imageFile);
     }
-    formData.append('componyName',this.registerForm.value.componyName)
-    formData.append('componyEmail',this.registerForm.value.componyEmail)
-    formData.append('componyMobile',this.registerForm.value.componyMobile)
+    formData.append('companyName',this.registerForm.value.companyName)
+    formData.append('companyEmail',this.registerForm.value.companyEmail)
+    formData.append('companyMobile',this.registerForm.value.companyMobile)
     formData.append('experiance',this.registerForm.value.experiance)
     formData.append('state',this.registerForm.value.state)
     formData.append('district',this.registerForm.value.district)

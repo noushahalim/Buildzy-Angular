@@ -11,17 +11,17 @@ export class EngineersListComponent implements OnInit{
 
   constructor(private clientService:ClientService, private router:Router){}
 
-  componyDatas:any=''
+  companyDatas:any=''
 
   ngOnInit() {
-    if(this.clientService.componyDatas){
-      this.componyDatas=this.clientService.componyDatas
+    if(this.clientService.companyDatas){
+      this.companyDatas=this.clientService.companyDatas
     }
     else{
-      this.clientService.componyDatasGet().subscribe(
+      this.clientService.companyDatasGet().subscribe(
         (response)=>{
-          this.componyDatas=response
-          this.clientService.componyDatas=response        
+          this.companyDatas=response
+          this.clientService.companyDatas=response        
         },
         (error:any)=>{
           this.router.navigate(['/'])
@@ -31,7 +31,7 @@ export class EngineersListComponent implements OnInit{
     }
   }
 
-  componyDetails(id:any){
-    this.router.navigate(['/componyDetails',id])
+  companyDetails(id:any){
+    this.router.navigate(['/companyDetails',id])
   }
 }

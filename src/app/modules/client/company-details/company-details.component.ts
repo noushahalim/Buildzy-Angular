@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
-  selector: 'app-compony-details',
-  templateUrl: './compony-details.component.html',
-  styleUrls: ['./compony-details.component.css']
+  selector: 'app-company-details',
+  templateUrl: './company-details.component.html',
+  styleUrls: ['./company-details.component.css']
 })
-export class ComponyDetailsComponent implements OnInit{
-  componyDetails: any;
+export class CompanyDetailsComponent implements OnInit{
+  companyDetails: any;
   error: any;
   connectionStatus: boolean = false
 
@@ -17,13 +17,13 @@ export class ComponyDetailsComponent implements OnInit{
   ngOnInit() {
     this.route.data.subscribe(
       (data)=>{
-        this.componyDetails = data['componyDetails'];
+        this.companyDetails = data['companyDetails'];
       },
       (error)=>{
         this.error = error
       }
     )
-    this.clientService.componyChats(this.componyDetails.engineerId).subscribe(
+    this.clientService.companyChats(this.companyDetails.engineerId).subscribe(
       (response)=>{
         this.connectionStatus = true
       }
@@ -32,7 +32,7 @@ export class ComponyDetailsComponent implements OnInit{
   }
 
   connectNow(){
-    this.clientService.componyConnect(this.componyDetails.engineerId).subscribe(
+    this.clientService.companyConnect(this.companyDetails.engineerId).subscribe(
       (response)=>{
         this.connectionStatus = true
       },
@@ -43,6 +43,6 @@ export class ComponyDetailsComponent implements OnInit{
   }
 
   messageNow(){
-    this.router.navigate(['/chatDetails',this.componyDetails.engineerId])
+    this.router.navigate(['/chatDetails',this.companyDetails.engineerId])
   }
 }

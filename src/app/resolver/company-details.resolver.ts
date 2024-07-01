@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from '@angular
 import { catchError, of } from 'rxjs';
 import { ClientService } from 'src/app/services/client.service';
 
-export const ComponyDetailsResolver:ResolveFn<any> = (route:ActivatedRouteSnapshot,state:RouterStateSnapshot)=>{
+export const CompanyDetailsResolver:ResolveFn<any> = (route:ActivatedRouteSnapshot,state:RouterStateSnapshot)=>{
 
   const clientService = inject(ClientService)
   const id = route.params['id']
@@ -12,7 +12,7 @@ export const ComponyDetailsResolver:ResolveFn<any> = (route:ActivatedRouteSnapsh
     return of(null)
   }
   
-  return clientService.componyDetailsGet(id).pipe(
+  return clientService.companyDetailsGet(id).pipe(
     catchError(error=>{
       console.error('Error retrieving company details:', error);
       return of(null)

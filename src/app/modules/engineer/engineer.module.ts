@@ -3,23 +3,25 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { EngineerRoutingModule } from './engineer-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { ComponyRegistrationComponent } from './compony-registration/compony-registration.component';
+import { CompanyRegistrationComponent } from './company-registration/company-registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MyComponyComponent } from './my-compony/my-compony.component';
-import { ComponyEditComponent } from './compony-edit/compony-edit.component';
+import { MyCompanyComponent } from './my-company/my-company.component';
+import { CompanyEditComponent } from './company-edit/company-edit.component';
 import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-page.component';
 import { EngineerChatsListComponent } from './engineer-chats-list/engineer-chats-list.component';
+import { WorkRequestComponent } from './work-request/work-request.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ComponyRegistrationComponent,
-    MyComponyComponent,
-    ComponyEditComponent,
+    CompanyRegistrationComponent,
+    MyCompanyComponent,
+    CompanyEditComponent,
     EngineerChatPageComponent,
-    EngineerChatsListComponent
+    EngineerChatsListComponent,
+    WorkRequestComponent
   ],
   imports: [
     CommonModule,

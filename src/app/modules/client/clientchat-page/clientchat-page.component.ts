@@ -11,7 +11,7 @@ export class ClientchatPageComponent implements OnInit{
   constructor(private route:ActivatedRoute , private clientService:ClientService){}
 
   engineerId:string=''
-  componyDatas:any =''
+  companyDatas:any =''
   client:string =''
   engineer:string =''
   chats:any =''
@@ -22,11 +22,11 @@ export class ClientchatPageComponent implements OnInit{
       this.engineerId = params['id'];
     })
 
-    this.clientService.componyChats(this.engineerId).subscribe(
+    this.clientService.companyChats(this.engineerId).subscribe(
       (response)=>{
         this.chats=response.chats
-        this.componyDatas= response.compony
-        this.engineer= this.componyDatas.engineerId
+        this.companyDatas= response.company
+        this.engineer= this.companyDatas.engineerId
         this.client= response.client
         if(this.chats){
           if(this.chats.status==true){

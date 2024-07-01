@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { componyRegistration } from 'src/app/models/componyRegistration';
+import { companyRegistration } from 'src/app/models/companyRegistration';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
-  selector: 'app-compony-edit',
-  templateUrl: './compony-edit.component.html',
-  styleUrls: ['./compony-edit.component.css']
+  selector: 'app-company-edit',
+  templateUrl: './company-edit.component.html',
+  styleUrls: ['./company-edit.component.css']
 })
-export class ComponyEditComponent {
+export class CompanyEditComponent {
   constructor(private engineerService:EngineerService , private router:Router){}
 
-  componyUp(data:any){
+  companyUp(data:any){
     
-    const datas : componyRegistration =data as componyRegistration
+    const datas : companyRegistration =data as companyRegistration
     
-    this.engineerService.componyUp(datas).subscribe(
+    this.engineerService.companyUp(datas).subscribe(
       (response)=>{
         this.router.navigate(['/engineer'])
         

@@ -1,9 +1,9 @@
-export class componyRegistration{
+export class companyRegistration{
     constructor(
         public image:any,
-        public componyName:string,
-        public componyEmail:string,
-        public componyMobile:number,
+        public companyName:string,
+        public companyEmail:string,
+        public companyMobile:number,
         public experiance:number,
         public state:string,
         public district:string,

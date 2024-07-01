@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
-  selector: 'app-my-compony',
-  templateUrl: './my-compony.component.html',
-  styleUrls: ['./my-compony.component.css']
+  selector: 'app-my-company',
+  templateUrl: './my-company.component.html',
+  styleUrls: ['./my-company.component.css']
 })
-export class MyComponyComponent {
-  componyDetails: any;
+export class MyCompanyComponent {
+  companyDetails: any;
   error: any;
 
   constructor(private engineerService:EngineerService){}
 
   ngOnInit() {
-    this.engineerService.componyDetails().subscribe(
+    this.engineerService.companyDetails().subscribe(
       (response)=>{
-        this.componyDetails = response
+        this.companyDetails = response
       },
       (error)=>{
         this.error = error

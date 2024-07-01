@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { componyRegistration } from 'src/app/models/componyRegistration';
+import { companyRegistration } from 'src/app/models/companyRegistration';
 import { CommonService } from 'src/app/services/common.service';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
-  selector: 'engineer-compony-registration',
-  templateUrl: './compony-registration.component.html',
-  styleUrls: ['./compony-registration.component.css']
+  selector: 'engineer-company-registration',
+  templateUrl: './company-registration.component.html',
+  styleUrls: ['./company-registration.component.css']
 })
-export class ComponyRegistrationComponent {
+export class CompanyRegistrationComponent {
   constructor(private engineerService:EngineerService , private commonService:CommonService , private router:Router){}
 
-  componyReg(data:any){
+  companyReg(data:any){
     
-    const datas : componyRegistration =data as componyRegistration
+    const datas : companyRegistration =data as companyRegistration
     
-    this.engineerService.componyReg(datas).subscribe(
+    this.engineerService.companyReg(datas).subscribe(
       (response)=>{
         localStorage.setItem('token',response.token)
         localStorage.setItem('accessType',response.role)

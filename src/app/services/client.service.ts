@@ -11,7 +11,7 @@ import { signupModel } from "../models/signup";
 export class ClientService{
     constructor(private http:HttpClient, private router:Router){}
 
-    componyDatas:any=''
+    companyDatas:any=''
     
     signupApi='http://localhost:3000/client/signup'
 
@@ -19,29 +19,29 @@ export class ClientService{
         return this.http.post(this.signupApi,data)
     }
 
-    componyDatasApi='http://localhost:3000/client/componyDatas'
+    companyDatasApi='http://localhost:3000/client/companyDatas'
 
-    componyDatasGet():Observable<any>{
-        return this.http.get(this.componyDatasApi)
+    companyDatasGet():Observable<any>{
+        return this.http.get(this.companyDatasApi)
     }
 
-    componyDetailsGet(id:string):Observable<any>{
-        const componyDetailsApi=`http://localhost:3000/client/componyDetails/${id}`
-        return this.http.get(componyDetailsApi)
+    companyDetailsGet(id:string):Observable<any>{
+        const companyDetailsApi=`http://localhost:3000/client/companyDetails/${id}`
+        return this.http.get(companyDetailsApi)
     }
 
-    componyConnect(id:string):Observable<any>{
-        const componyConnectApi=`http://localhost:3000/client/componyConnect/${id}`
-        return this.http.get(componyConnectApi)
+    companyConnect(id:string):Observable<any>{
+        const companyConnectApi=`http://localhost:3000/client/companyConnect/${id}`
+        return this.http.get(companyConnectApi)
     }
 
-    componyChats(id:string):Observable<any>{
-        const componyChatsApi=`http://localhost:3000/client/componyChats/${id}`
-        return this.http.get(componyChatsApi)
+    companyChats(id:string):Observable<any>{
+        const companyChatsApi=`http://localhost:3000/client/companyChats/${id}`
+        return this.http.get(companyChatsApi)
     }
 
-    componyChatsList():Observable<any>{
-        const componyChatsListApi='http://localhost:3000/client/componyChatsList/'
-        return this.http.get(componyChatsListApi)
+    companyChatsList():Observable<any>{
+        const companyChatsListApi='http://localhost:3000/client/companyChatsList/'
+        return this.http.get(companyChatsListApi)
     }
 }

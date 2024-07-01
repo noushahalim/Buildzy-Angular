@@ -51,7 +51,7 @@ export class loginComponent implements OnInit{
                 }
                 else{
                   this.engineerService.id= response.id
-                  this.route.navigate(['/engineer/componyRegistration'])
+                  this.route.navigate(['/engineer/companyRegistration'])
                 }
               }
             },

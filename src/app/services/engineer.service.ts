@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { signupModel } from "../models/signup";
 import { Observable } from "rxjs";
-import { componyRegistration } from "../models/componyRegistration";
+import { companyRegistration } from "../models/companyRegistration";
 
 @Injectable({
     providedIn:'root'
@@ -12,8 +12,8 @@ import { componyRegistration } from "../models/componyRegistration";
 export class EngineerService{
     constructor(private http:HttpClient, private router:Router){}
 
-    componyData:any=''
-    componyRegistrationStatus:boolean=false
+    companyData:any=''
+    companyRegistrationStatus:boolean=false
     id:string=''
 
     signupApi='http://localhost:3000/engineer/signup'
@@ -22,22 +22,22 @@ export class EngineerService{
         return this.http.post(this.signupApi,data)
     }
 
-    componyReg(data:componyRegistration):Observable<any>{
-        const componyRegApi=`http://localhost:3000/engineer/componyRegistration/${this.id}`
+    companyReg(data:companyRegistration):Observable<any>{
+        const companyRegApi=`http://localhost:3000/engineer/companyRegistration/${this.id}`
         
-        return this.http.post(componyRegApi,data)
+        return this.http.post(companyRegApi,data)
     }
 
-    componyDetails():Observable<any>{
-        const componyDetailsApi='http://localhost:3000/engineer/componyDetails'
+    companyDetails():Observable<any>{
+        const companyDetailsApi='http://localhost:3000/engineer/companyDetails'
 
-        return this.http.get(componyDetailsApi)
+        return this.http.get(companyDetailsApi)
     }
 
-    componyUp(data:componyRegistration):Observable<any>{
-        const componyUpApi='http://localhost:3000/engineer/componyUpdation'
+    companyUp(data:companyRegistration):Observable<any>{
+        const companyUpApi='http://localhost:3000/engineer/companyUpdation'
         
-        return this.http.post(componyUpApi,data)
+        return this.http.post(companyUpApi,data)
     }
 
     clientChats(id:string):Observable<any>{
@@ -53,5 +53,15 @@ export class EngineerService{
     requestAccept(id:string):Observable<any>{
         const requestAcceptApi=`http://localhost:3000/engineer/requestAccept/${id}`
         return this.http.get(requestAcceptApi)
+    }
+
+    clientDetails(id:string):Observable<any>{
+        const clientDetailsApi=`http://localhost:3000/engineer/clientDetails/${id}`
+        return this.http.get(clientDetailsApi)
+    }
+
+    submitWorkRequest(data:any):Observable<any>{
+        const submitWorkRequestApi='http://localhost:3000/engineer/submitWorkRequest'
+        return this.http.post(submitWorkRequestApi,data)
     }
 }

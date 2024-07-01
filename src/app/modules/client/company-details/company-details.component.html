@@ -1,28 +1,28 @@
 <div class="bg-[#E2E5FF] min-h-screen h-full">
     <shared-navbar></shared-navbar>
-    <div *ngIf="componyDetails; else loading">
+    <div *ngIf="companyDetails; else loading">
         <div class="flex flex-col items-center h-60">
             <div class="w-full h-40 bg-gray-300 overflow-hidden">
                 <img class="object-cover w-full h-40" src="../../../../assets/images/banner.jpeg" alt="">
             </div>
             <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gray-900 absolute top-[165px] sm:top-[165px] lg:top-[120px] border-t-[5px] border-r-[5px] border-l-[5px] border-white overflow-hidden">
-                <img class="w-40 h-40 sm:w-48 sm:h-48 object-cover" src="{{componyDetails.logo}}" alt="">
+                <img class="w-40 h-40 sm:w-48 sm:h-48 object-cover" src="{{companyDetails.logo}}" alt="">
             </div>
         </div>
-        <div class="w-full flex justify-center items-center text-[40px] h-10">{{componyDetails.componyName}}</div>
+        <div class="w-full flex justify-center items-center text-[40px] h-10">{{companyDetails.companyName}}</div>
         <div class="w-full flex flex-col items-center sm:items-start sm:flex-row text-xl">
             <div class="w-[50%] sm:pl-10 flex flex-col items-center sm:items-start">
-                <p>{{componyDetails.experiance}}+ Years Experience</p>
-                <p>{{componyDetails.district}} - {{componyDetails.state}}</p>
+                <p>{{companyDetails.experiance}}+ Years Experience</p>
+                <p>{{companyDetails.district}} - {{companyDetails.state}}</p>
             </div>
             <div class="w-[50%] flex flex-col items-center sm:items-end sm:pr-10">
-                <p>+91 {{componyDetails.componyMobile}}</p>
-                <p>{{componyDetails.componyEmail}}</p>
+                <p>+91 {{companyDetails.companyMobile}}</p>
+                <p>{{companyDetails.companyEmail}}</p>
             </div>
         </div>
         <div class="w-full h-full flex justify-center pt-10 sm:pt-2">
             <div class="w-[80%] sm:w-[60%] rounded-[10px] h-full text-lg p-2 bg-blue-300">
-                <p>{{componyDetails.description}}</p>
+                <p>{{companyDetails.description}}</p>
             </div>
         </div>
         <div class="w-full mt-4 flex justify-center">

@@ -4,7 +4,7 @@ import { EngineerService } from '../services/engineer.service';
 
 export const engineerGuard: CanActivateFn = (route, state) => {
   const router= inject(Router)
-  if(state.url=='/engineer/componyRegistration'){
+  if(state.url=='/engineer/companyRegistration'){
     const engineerService= inject(EngineerService)
     if(engineerService.id){
       return true
