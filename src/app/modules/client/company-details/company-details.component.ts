@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-company-details',
@@ -9,10 +10,11 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class CompanyDetailsComponent implements OnInit{
   companyDetails: any;
+  workRequests: any
   error: any;
   connectionStatus: boolean = false
 
-  constructor(private clientService:ClientService , private route:ActivatedRoute , private router:Router){}
+  constructor(private clientService:ClientService , private commonService:CommonService , private route:ActivatedRoute , private router:Router){}
 
   ngOnInit() {
     this.route.data.subscribe(
@@ -28,6 +30,16 @@ export class CompanyDetailsComponent implements OnInit{
         this.connectionStatus = true
       }
     )
+    if(this.commonService.token){
+      this.clientService.workRequests(this.companyDetails.engineerId).subscribe(
+        (response)=>{
+          this.workRequests = response
+        },
+        (error)=>{
+          console.log(error);
+        }
+      )
+    }
     
   }
 
@@ -44,5 +56,35 @@ export class CompanyDetailsComponent implements OnInit{
 
   messageNow(){
     this.router.navigate(['/chatDetails',this.companyDetails.engineerId])
+  }
+
+  agreeProject(id:string){
+    this.clientService.agreeWorkRequest(id).subscribe(
+      (response)=>{
+        window.location.reload();
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  deleteProject(id:string){
+    this.clientService.deleteWorkRequest(id).subscribe(
+      (response)=>{
+        window.location.reload();
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 }

@@ -20,6 +20,23 @@
                 <p>{{companyDetails.companyEmail}}</p>
             </div>
         </div>
+        <div *ngIf="workRequests" class="w-full h-full flex items-center gap-2 pt-10 sm:pt-2 flex-col">
+            <div *ngFor="let project of workRequests" class="w-[80%] sm:w-[40%] rounded-[10px] h-full text-lg p-2 bg-green-300 shadow-lg hover:shadow-xl hover:bg-green-400 cursor-pointer" title="click to view details">
+                <div class="w-full border text-xl lg:text-2xl font-medium text-center truncate border-gray-500">{{project.projectTitle}}</div>
+                <div class="w-full border-t grid grid-cols-3">
+                    <div class="w-full truncate flex items-center border-gray-400 pl-1 border">{{project.projectLocation}}</div>
+                    <div class="w-full truncate flex items-center border-gray-400 pl-1 border">{{project.estimatedCost}}</div>
+                    <div class="w-full p-1 flex justify-center items-center">
+                        <button (click)="agreeProject(project.engineerId)" class="w-[80%] rounded-lg truncate flex justify-center items-center bg-blue-700 hover:bg-blue-900 text-white pl-1" title="click to Agree">Agree</button>
+                    </div>
+                    <div class="w-full truncate flex items-center border-gray-400 pl-1 border">{{formatDate(project.startDate)}}</div>
+                    <div class="w-full truncate flex items-center border-gray-400 pl-1 border">{{formatDate(project.endDate)}}</div>
+                    <div class="w-full p-1 flex justify-center items-center">
+                        <button (click)="deleteProject(project._id)" class="w-[80%] rounded-lg truncate flex justify-center items-center bg-red-700 hover:bg-red-900 text-white pl-1" title="click to Delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="w-full h-full flex justify-center pt-10 sm:pt-2">
             <div class="w-[80%] sm:w-[60%] rounded-[10px] h-full text-lg p-2 bg-blue-300">
                 <p>{{companyDetails.description}}</p>

@@ -44,4 +44,19 @@ export class ClientService{
         const companyChatsListApi='http://localhost:3000/client/companyChatsList/'
         return this.http.get(companyChatsListApi)
     }
+
+    workRequests(id:string):Observable<any>{
+        const workRequestsApi=`http://localhost:3000/client/workRequests/${id}`
+        return this.http.get(workRequestsApi)
+    }
+
+    agreeWorkRequest(id:string):Observable<any>{
+        const agreeWorkRequestApi=`http://localhost:3000/client/agreeWorkRequest/${id}`
+        return this.http.get(agreeWorkRequestApi)
+    }
+
+    deleteWorkRequest(id:string):Observable<any>{
+        const deleteWorkRequestApi=`http://localhost:3000/client/deleteWorkRequest/${id}`
+        return this.http.delete(deleteWorkRequestApi)
+    }
 }
