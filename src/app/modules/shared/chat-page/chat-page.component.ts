@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { CommonService } from 'src/app/services/common.service';
@@ -22,7 +23,7 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
 
   @ViewChild('chatWindow') chatWindow!: ElementRef;
 
-  constructor(private chatService: ChatService , private commonService: CommonService , private engineerService:EngineerService) {}
+  constructor(private chatService: ChatService , private commonService: CommonService , private engineerService:EngineerService , private location: Location) {}
 
   ngOnInit() {
     this.chatService.connect();
@@ -109,5 +110,9 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
         console.log(error);
       }
     )
+  }
+
+  backButton(){
+    this.location.back();
   }
 }

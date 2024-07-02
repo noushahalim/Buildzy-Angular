@@ -10,6 +10,7 @@ import { CompanyEditComponent } from './company-edit/company-edit.component';
 import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-page.component';
 import { EngineerChatsListComponent } from './engineer-chats-list/engineer-chats-list.component';
 import { WorkRequestComponent } from './work-request/work-request.component';
+import { EngineerNavbarComponent } from './engineer-navbar/engineer-navbar.component';
 
 
 
@@ -21,7 +22,8 @@ import { WorkRequestComponent } from './work-request/work-request.component';
     CompanyEditComponent,
     EngineerChatPageComponent,
     EngineerChatsListComponent,
-    WorkRequestComponent
+    WorkRequestComponent,
+    EngineerNavbarComponent
   ],
   imports: [
     CommonModule,

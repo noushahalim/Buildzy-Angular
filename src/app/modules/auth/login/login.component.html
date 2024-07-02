@@ -36,7 +36,7 @@
                         <a routerLink="/auth/forgotPassword" class="text-sm text-[#303771]">Forgot password?</a>
                   </div>
                   <small class="text-red-600 w-full flex justify-center" *ngIf="backendError">{{backendError}}</small>
-                <button [disabled]="!loginForm.valid" type="submit" class="w-full flex justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'">LOGIN</button>
+                <button [disabled]="!loginForm.valid" type="submit" class="w-full justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'">LOGIN</button>
             </form>
             
             <p class="font-medium text-sm">or</p>
@@ -53,7 +53,7 @@
                 <shared-button [name]="'Engineer'" [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#7E88E1] h-8'" [routerLink]="'/auth/engineer/signup'"></shared-button>
             </div>
         </div>
-        <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center flex items-center justify-center flex-col hidden md:flex">
+        <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center items-center justify-center flex-col hidden md:flex">
             <img class="w-60" src="../../../assets/images/logo.png" alt="">
             <p class="w-56 text-[11px] text-[#303771] text-wrap">Bridge the gap. Buildzy connects users & engineers to build a better future, together.</p>
         </div>

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
-  selector: 'shared-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'client-navbar',
+  templateUrl: './client-navbar.component.html',
+  styleUrls: ['./client-navbar.component.css']
 })
-export class NavbarComponent implements OnInit{
-  constructor(private commonService:CommonService, private formBuilder:FormBuilder, private route:Router){}
+export class ClientNavbarComponent {
+  constructor(private commonService:CommonService, private formBuilder:FormBuilder){}
 
   logined:boolean=false
   profileChangeForm!:FormGroup
@@ -19,6 +18,15 @@ export class NavbarComponent implements OnInit{
   buttonDisabled:boolean=false
   accessType:string | null=''
   notificationCount=0
+  style1:string='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl'
+  style2:string='rounded pl-4 pr-4 h-10 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 md:text-base lg:text-lg xl:text-xl'
+  style3:string='shadow-xl w-full pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300'
+  style4:string='w-full rounded pl-2 pr-2 h-6 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 '
+  menu:string='hidden'
+  profile:string='hidden'
+  showChangeProfileModal:boolean=false
+  previewImageSrc:string=''
+  imageFile:any = null
   
   ngOnInit() {
     if(this.commonService.token){
@@ -42,15 +50,6 @@ export class NavbarComponent implements OnInit{
     this.email= this.commonService.email
     this.accessType = localStorage.getItem('accessType')
   }
-  style1:string='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl'
-  style2:string='rounded pl-4 pr-4 h-10 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 md:text-base lg:text-lg xl:text-xl'
-  style3:string='shadow-xl w-full pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300'
-  style4:string='w-full rounded pl-2 pr-2 h-6 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 '
-  menu:string='hidden'
-  profile:string='hidden'
-  showChangeProfileModal:boolean=false
-  previewImageSrc:string=''
-  imageFile:any = null
   
   menuClicked(){
     if(this.menu=='hidden'){
@@ -120,10 +119,6 @@ export class NavbarComponent implements OnInit{
     else {
       console.error('Form is invalid:', this.profileChangeForm.errors);
     }
-  }
-
-  myCompany(){
-    this.route.navigate(['/engineer/myCompany'])
   }
 
   logout(){

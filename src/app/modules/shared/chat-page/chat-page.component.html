@@ -1,15 +1,14 @@
-<div class="w-screen h-screen border bg-[#E2E5FF] ">
-    <shared-navbar></shared-navbar>
-    <div class="w-full h-[87%] flex items-center justify-center">
-        <div class="w-[80%] md:w-[50%] h-[95%] border border-green-700 bg-white rounded">
+<div class="w-screen h-screen border bg-[#E2E5FF] pt-10">
+    <div class="w-full h-[97%] flex items-center justify-center">
+        <div class="w-[90%] md:w-[50%] h-[95%] border border-green-700 bg-white rounded">
             <div class="w-full h-[12%] border-b border-green-700 flex items-center pl-1">
-                <div class="hidden sm:flex w-[5%] h-full mr-1 items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48"><path fill="none" stroke="blue" stroke-linejoin="round" stroke-width="4" d="M44 40.836c-4.893-5.973-9.238-9.362-13.036-10.168c-3.797-.805-7.412-.927-10.846-.365V41L4 23.545L20.118 7v10.167c6.349.05 11.746 2.328 16.192 6.833c4.445 4.505 7.009 10.117 7.69 16.836Z" clip-rule="evenodd"/></svg>
+                <div class="flex w-[5%] h-full mr-1 items-center justify-center">
+                    <svg (click)="backButton()" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48"><path fill="none" stroke="blue" stroke-linejoin="round" stroke-width="4" d="M44 40.836c-4.893-5.973-9.238-9.362-13.036-10.168c-3.797-.805-7.412-.927-10.846-.365V41L4 23.545L20.118 7v10.167c6.349.05 11.746 2.328 16.192 6.833c4.445 4.505 7.009 10.117 7.69 16.836Z" clip-rule="evenodd"/></svg>
                 </div>
                 <div class="w-14 h-14 rounded-full bg-green-200 flex items-center justify-center overflow-hidden">
                     <img class="w-14 h-14 object-cover" src="{{receiverDatas.logo||receiverDatas.profile}}" alt="">
                 </div>
-                <div class="w-[70%] h-full ml-1 overflow-hidden text-2xl font-semibold flex items-center pl-2">{{receiverDatas.companyName||receiverDatas.fullName}}</div>
+                <div class="w-[60%] sm:w-[70%] h-full ml-1 overflow-hidden text-2xl font-semibold flex items-center pl-2">{{receiverDatas.companyName||receiverDatas.fullName}}</div>
                 <div *ngIf="connected" class=" border-green-700  w-[15%] h-full flex items-center justify-center gap-2">
                     <svg class="hover:bg-blue-100 rounded" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="none" stroke="blue" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15.75v-7.5a2 2 0 0 1 2-2h8.5a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm17.168-8.759l-4 3.563a.5.5 0 0 0-.168.373v1.778a.5.5 0 0 0 .168.373l4 3.563a.5.5 0 0 0 .832-.374V7.365a.5.5 0 0 0-.832-.374Z"/></svg>
                     <svg routerLink="/engineer/workRequest/{{receiverDatas._id}}" *ngIf="role=='engineer'" class="hover:bg-blue-100 rounded" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512">

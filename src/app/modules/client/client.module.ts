@@ -13,6 +13,8 @@ import { ClientChatsListComponent } from './client-chats-list/client-chats-list.
 import { WorkRequestDetailsComponent } from './work-request-details/work-request-details.component';
 import { ClientWorksComponent } from './client-works/client-works.component';
 import { WorkDetailsComponent } from './work-details/work-details.component';
+import { ClientNavbarComponent } from './client-navbar/client-navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(localeIn, 'en-IN');
 
@@ -25,12 +27,15 @@ registerLocaleData(localeIn, 'en-IN');
     ClientChatsListComponent,
     WorkRequestDetailsComponent,
     ClientWorksComponent,
-    WorkDetailsComponent
+    WorkDetailsComponent,
+    ClientNavbarComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ClientRoutingModule
+    ClientRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     HomeComponent
