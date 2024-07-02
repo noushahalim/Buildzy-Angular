@@ -49,7 +49,7 @@ export class CompanyDetailsComponent implements OnInit{
         this.connectionStatus = true
       },
       (error)=>{
-        console.log('error while commect',error);
+        console.log('error while connect',error);
       }
     )
   }

@@ -7,6 +7,7 @@ import { CompanyDetailsResolver } from "src/app/resolver/company-details.resolve
 import { ClientchatPageComponent } from "./clientchat-page/clientchat-page.component";
 import { ClientChatsListComponent } from "./client-chats-list/client-chats-list.component";
 import { WorkRequestDetailsComponent } from "./work-request-details/work-request-details.component";
+import { ClientWorksComponent } from "./client-works/client-works.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path:'companyDetails/:id',component:CompanyDetailsComponent, resolve:{companyDetails:CompanyDetailsResolver}},
     {path:'chatDetails/:id',component:ClientchatPageComponent},
     {path:'chats',component:ClientChatsListComponent},
-    {path:'workRequestDetails/:id',component:WorkRequestDetailsComponent}
+    {path:'workRequestDetails/:id',component:WorkRequestDetailsComponent},
+    {path:'works',component:ClientWorksComponent}
 ]
 
 @NgModule({

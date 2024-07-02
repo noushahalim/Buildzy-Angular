@@ -64,4 +64,9 @@ export class ClientService{
         const workRequestDetailsApi=`http://localhost:3000/client/workRequestDetails/${id}`
         return this.http.get(workRequestDetailsApi)
     }
+
+    works():Observable<any>{
+        const worksApi='http://localhost:3000/client/works/'
+        return this.http.get(worksApi)
+    }
 }
