@@ -12,6 +12,7 @@ import { ClientchatPageComponent } from './clientchat-page/clientchat-page.compo
 import { ClientChatsListComponent } from './client-chats-list/client-chats-list.component';
 import { WorkRequestDetailsComponent } from './work-request-details/work-request-details.component';
 import { ClientWorksComponent } from './client-works/client-works.component';
+import { WorkDetailsComponent } from './work-details/work-details.component';
 
 registerLocaleData(localeIn, 'en-IN');
 
@@ -23,7 +24,8 @@ registerLocaleData(localeIn, 'en-IN');
     ClientchatPageComponent,
     ClientChatsListComponent,
     WorkRequestDetailsComponent,
-    ClientWorksComponent
+    ClientWorksComponent,
+    WorkDetailsComponent
   ],
   imports: [
     CommonModule,

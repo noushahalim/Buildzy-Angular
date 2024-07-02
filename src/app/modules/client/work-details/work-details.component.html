@@ -1,0 +1,60 @@
+<div class="min-h-screen h-full bg-[#E2E5FF] pb-10">
+    <shared-navbar></shared-navbar>
+    <div class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12 text-gray-800">Work Details</h1>
+      
+      <div *ngIf="work" class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+          <h2 class="text-3xl font-semibold mb-2">{{ work.projectTitle }}</h2>
+          <p class="text-xl">{{ work.companyName }}</p>
+        </div>
+        
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <div class="mb-6">
+              <h3 class="text-xl font-semibold mb-2 text-gray-700">Project Details</h3>
+              <p class="text-gray-600"><span class="font-medium">Location:</span> {{ work.projectLocation }}</p>
+              <p class="text-gray-600"><span class="font-medium">Type:</span> {{ work.projectType }}</p>
+              <p class="text-gray-600"><span class="font-medium">Duration:</span> {{ work.startDate | date:'mediumDate' }} - {{ work.endDate | date:'mediumDate' }}</p>
+              <p class="text-gray-600"><span class="font-medium">Estimated Cost:</span> {{ work.estimatedCost | currency:'INR' }}</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2 text-gray-700">Project Description</h3>
+              <p class="text-gray-600">{{ work.projectDescription }}</p>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-700">Milestones</h3>
+            <div class="space-y-4">
+              <div *ngFor="let milestone of work.milestones; let i = index" class="flex items-center">
+                <div class="relative flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full mr-4">
+                  <div [ngClass]="{'bg-blue-500': milestone.status, 'bg-gray-300': !milestone.status}" class="w-4 h-4 rounded-full"></div>
+                  <div *ngIf="i < work.milestones.length - 1" class="absolute w-1 bg-blue-200 h-full top-8 left-1/2 transform -translate-x-1/2"></div>
+                </div>
+                <div>
+                  <p [ngClass]="{'text-blue-600 font-semibold': milestone.status, 'text-gray-500': !milestone.status}">
+                    {{ milestone.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gray-50 p-6 mt-6">
+          <h3 class="text-xl font-semibold mb-2 text-gray-700">Additional Information</h3>
+          <p class="text-gray-600"><span class="font-medium">Client:</span> {{ work.clientName }}</p>
+          <p class="text-gray-600"><span class="font-medium">Created:</span> {{ work.createdAt | date:'medium' }}</p>
+        </div>
+      </div>
+      
+      <div *ngIf="!work" class="flex justify-center items-center h-64">
+        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+      <div *ngIf="error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Error!</strong>
+        <span class="block sm:inline">{{ error }}</span>
+      </div>
+    </div>
+  </div>

@@ -60,9 +60,9 @@ export class ClientService{
         return this.http.delete(deleteWorkRequestApi)
     }
 
-    workRequestDetails(id:string):Observable<any>{
-        const workRequestDetailsApi=`http://localhost:3000/client/workRequestDetails/${id}`
-        return this.http.get(workRequestDetailsApi)
+    workDetails(id:string):Observable<any>{
+        const workDetailsApi=`http://localhost:3000/client/workDetails/${id}`
+        return this.http.get(workDetailsApi)
     }
 
     works():Observable<any>{

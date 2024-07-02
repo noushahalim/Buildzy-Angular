@@ -19,7 +19,7 @@ export class WorkRequestDetailsComponent implements OnInit{
       this.workRequestId = params['id']
     })
 
-    this.clientService.workRequestDetails(this.workRequestId).subscribe(
+    this.clientService.workDetails(this.workRequestId).subscribe(
       (response)=>{
         this.workDetails=response
         if(this.workDetails.status==true){
