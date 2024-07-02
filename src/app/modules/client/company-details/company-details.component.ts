@@ -80,6 +80,10 @@ export class CompanyDetailsComponent implements OnInit{
     )
   }
 
+  projectDetails(id:string){
+    this.router.navigate(['/workRequestDetails',id])
+  }
+
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');

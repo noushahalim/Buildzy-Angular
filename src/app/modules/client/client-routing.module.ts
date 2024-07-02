@@ -6,13 +6,15 @@ import { CompanyDetailsComponent } from "./company-details/company-details.compo
 import { CompanyDetailsResolver } from "src/app/resolver/company-details.resolver";
 import { ClientchatPageComponent } from "./clientchat-page/clientchat-page.component";
 import { ClientChatsListComponent } from "./client-chats-list/client-chats-list.component";
+import { WorkRequestDetailsComponent } from "./work-request-details/work-request-details.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
     {path:'engineers',component:EngineersListComponent},
     {path:'companyDetails/:id',component:CompanyDetailsComponent, resolve:{companyDetails:CompanyDetailsResolver}},
     {path:'chatDetails/:id',component:ClientchatPageComponent},
-    {path:'chats',component:ClientChatsListComponent}
+    {path:'chats',component:ClientChatsListComponent},
+    {path:'workRequestDetails/:id',component:WorkRequestDetailsComponent}
 ]
 
 @NgModule({

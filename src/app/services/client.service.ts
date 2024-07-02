@@ -59,4 +59,9 @@ export class ClientService{
         const deleteWorkRequestApi=`http://localhost:3000/client/deleteWorkRequest/${id}`
         return this.http.delete(deleteWorkRequestApi)
     }
+
+    workRequestDetails(id:string):Observable<any>{
+        const workRequestDetailsApi=`http://localhost:3000/client/workRequestDetails/${id}`
+        return this.http.get(workRequestDetailsApi)
+    }
 }
