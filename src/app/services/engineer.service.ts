@@ -64,4 +64,9 @@ export class EngineerService{
         const submitWorkRequestApi='http://localhost:3000/engineer/submitWorkRequest'
         return this.http.post(submitWorkRequestApi,data)
     }
+
+    engineerWorks():Observable<any>{
+        const engineerWorksApi='http://localhost:3000/engineer/engineerWorks/'
+        return this.http.get(engineerWorksApi)
+    }
 }

@@ -11,6 +11,7 @@ import { EngineerChatPageComponent } from './engineer-chat-page/engineer-chat-pa
 import { EngineerChatsListComponent } from './engineer-chats-list/engineer-chats-list.component';
 import { WorkRequestComponent } from './work-request/work-request.component';
 import { EngineerNavbarComponent } from './engineer-navbar/engineer-navbar.component';
+import { EngineerWorksComponent } from './engineer-works/engineer-works.component';
 
 
 
@@ -23,7 +24,8 @@ import { EngineerNavbarComponent } from './engineer-navbar/engineer-navbar.compo
     EngineerChatPageComponent,
     EngineerChatsListComponent,
     WorkRequestComponent,
-    EngineerNavbarComponent
+    EngineerNavbarComponent,
+    EngineerWorksComponent
   ],
   imports: [
     CommonModule,
