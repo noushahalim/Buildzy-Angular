@@ -69,4 +69,14 @@ export class EngineerService{
         const engineerWorksApi='http://localhost:3000/engineer/engineerWorks/'
         return this.http.get(engineerWorksApi)
     }
+
+    engineerWorkDetails(id:string):Observable<any>{
+        const engineerWorkDetailsApi=`http://localhost:3000/engineer/engineerWorkDetails/${id}`
+        return this.http.get(engineerWorkDetailsApi)
+    }
+
+    updateMilestones(workId:any,milestones:any):Observable<any>{
+        const updateMilestonesApi='http://localhost:3000/engineer/updateMilestones'
+        return this.http.post(updateMilestonesApi,{workId,milestones})
+    }
 }

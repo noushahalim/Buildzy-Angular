@@ -8,6 +8,7 @@ import { EngineerChatPageComponent } from "./engineer-chat-page/engineer-chat-pa
 import { EngineerChatsListComponent } from "./engineer-chats-list/engineer-chats-list.component";
 import { WorkRequestComponent } from "./work-request/work-request.component";
 import { EngineerWorksComponent } from "./engineer-works/engineer-works.component";
+import { EngineerWorkDetailsComponent } from "./engineer-work-details/engineer-work-details.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:'chats',component:EngineerChatsListComponent},
     {path:'workRequest/:id',component:WorkRequestComponent},
     {path:'works',component:EngineerWorksComponent},
+    {path:'workDetails/:id',component:EngineerWorkDetailsComponent}
 ]
 
 @NgModule({

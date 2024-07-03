@@ -1,0 +1,92 @@
+<div class="min-h-screen bg-[#c6f2c2] pb-10">
+    <engineer-navbar></engineer-navbar>
+    <div class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-center mb-12 text-gray-800">Project Dashboard</h1>
+      
+      <div *ngIf="work" class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="bg-gradient-to-r from-green-400 to-blue-500 p-8 text-white relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-black opacity-10 transform -skew-y-6"></div>
+          <div class="relative z-10">
+            <h2 class="text-4xl font-bold mb-2">{{ work.projectTitle }}</h2>
+            <p class="text-xl opacity-80">{{ work.clientName }}</p>
+          </div>
+        </div>
+  
+        <div class="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-2 space-y-6">
+            <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+              <h3 class="text-2xl font-semibold mb-4 text-gray-800">Project Overview</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="text-sm text-gray-500">Location</p>
+                  <p class="font-medium text-gray-800">{{ work.projectLocation }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Type</p>
+                  <p class="font-medium text-gray-800">{{ work.projectType }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Start Date</p>
+                  <p class="font-medium text-gray-800">{{ work.startDate | date:'mediumDate' }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">End Date</p>
+                  <p class="font-medium text-gray-800">{{ work.endDate | date:'mediumDate' }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Estimated Cost</p>
+                  <p class="font-medium text-gray-800">{{ work.estimatedCost | currency:'INR' }}</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Created On</p>
+                  <p class="font-medium text-gray-800">{{ work.createdAt | date:'medium' }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+              <h3 class="text-2xl font-semibold mb-4 text-gray-800">Project Description</h3>
+              <p class="text-gray-700">{{ work.projectDescription }}</p>
+            </div>
+          </div>
+          
+          <div class="lg:col-span-1">
+            <div class="bg-gray-50 rounded-xl p-6 shadow-inner">
+              <h3 class="text-2xl font-semibold mb-6 text-gray-800">Milestones</h3>
+              <form (ngSubmit)="updateMilestones()" class="space-y-4">
+                <div *ngFor="let milestone of work.milestones; let i = index" class="flex items-center space-x-4">
+                  <div class="flex-shrink-0">
+                    <input type="checkbox" 
+                           [id]="'milestone-' + i" 
+                           [(ngModel)]="milestone.status" 
+                           [name]="'milestone-' + i" 
+                           class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out"
+                           [disabled]="!canToggleMilestone(i)"
+                           (change)="onMilestoneChange(i)">
+                  </div>
+                  <label [for]="'milestone-' + i" 
+                         [ngClass]="{'text-gray-800 font-medium': milestone.status, 'text-gray-500': !milestone.status}" 
+                         class="flex-grow">
+                    {{ milestone.description }}
+                  </label>
+                </div>
+                <button type="submit" 
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+                        [disabled]="!milestonesChanged">
+                  Update Milestones
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngIf="!work" class="flex justify-center items-center h-64">
+        <div class="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-green-500"></div>
+      </div>
+  
+      <div *ngIf="error" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg mt-6" role="alert">
+        <p class="font-bold">Error</p>
+        <p>{{ error }}</p>
+      </div>
+    </div>
+  </div>
