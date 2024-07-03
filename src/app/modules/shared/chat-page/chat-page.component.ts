@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
 import { CommonService } from 'src/app/services/common.service';
 import { EngineerService } from 'src/app/services/engineer.service';
@@ -9,7 +9,7 @@ import { EngineerService } from 'src/app/services/engineer.service';
   templateUrl: './chat-page.component.html',
   styleUrls: ['./chat-page.component.css']
 })
-export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
+export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked , OnDestroy{
   @Input() receiverDatas:any =''
   @Input() chats:any =''
   @Input() connected:boolean =false
@@ -64,6 +64,10 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked{
 
   ngAfterViewChecked() {
     this.scrollToBottom();
+  }
+
+  ngOnDestroy(): void {
+    this.chatService.disconnect();
   }
 
   getChatKey(sender:string,receiver:string):string{

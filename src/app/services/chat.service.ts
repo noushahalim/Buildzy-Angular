@@ -33,4 +33,10 @@ export class ChatService {
       }
     });
   }
+
+  disconnect() {
+    if (this.socket) {
+      this.socket.disconnect();
+    }
+  }
 }
