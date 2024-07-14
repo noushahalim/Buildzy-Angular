@@ -10,7 +10,9 @@
                 </div>
                 <div class="w-[60%] sm:w-[70%] h-full ml-1 overflow-hidden text-2xl font-semibold flex items-center pl-2">{{receiverDatas.companyName||receiverDatas.fullName}}</div>
                 <div *ngIf="connected" class=" border-green-700  w-[15%] h-full flex items-center justify-center gap-2">
-                    <svg class="hover:bg-blue-100 rounded" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="none" stroke="blue" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15.75v-7.5a2 2 0 0 1 2-2h8.5a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm17.168-8.759l-4 3.563a.5.5 0 0 0-.168.373v1.778a.5.5 0 0 0 .168.373l4 3.563a.5.5 0 0 0 .832-.374V7.365a.5.5 0 0 0-.832-.374Z"/></svg>
+                    <svg *ngIf="callStatus === 'idle'" (click)="startVideoCall()" class="hover:bg-blue-100 rounded" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path fill="none" stroke="blue" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15.75v-7.5a2 2 0 0 1 2-2h8.5a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm17.168-8.759l-4 3.563a.5.5 0 0 0-.168.373v1.778a.5.5 0 0 0 .168.373l4 3.563a.5.5 0 0 0 .832-.374V7.365a.5.5 0 0 0-.832-.374Z"/>
+                    </svg>
                     <svg routerLink="/engineer/workRequest/{{receiverDatas._id}}" *ngIf="role=='engineer'" class="hover:bg-blue-100 rounded" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 512 512">
                         <path fill="#597B91" d="M353.121 207.084H192.345a4.87 4.87 0 0 0-4.869 4.869v290.223a4.87 4.87 0 0 0 4.869 4.869H353.12a4.87 4.87 0 0 0 4.869-4.869V211.953a4.868 4.868 0 0 0-4.868-4.869z"/>
                         <path fill="#2B3B47" d="M234.551 336.73h-18.074a5.011 5.011 0 0 1-5.011-5.011v-73.954a5.011 5.011 0 0 1 5.011-5.011h18.074a5.011 5.011 0 0 1 5.011 5.011v73.954a5.011 5.011 0 0 1-5.011 5.011zm51.598-5.01v-73.954a5.011 5.011 0 0 0-5.011-5.011h-18.074a5.011 5.011 0 0 0-5.011 5.011v73.954a5.011 5.011 0 0 0 5.011 5.011h18.074a5.012 5.012 0 0 0 5.011-5.011zm46.588 0v-73.954a5.011 5.011 0 0 0-5.011-5.011h-18.074a5.011 5.011 0 0 0-5.011 5.011v73.954a5.011 5.011 0 0 0 5.011 5.011h18.074a5.012 5.012 0 0 0 5.011-5.011zm-93.175 148.205v-73.954a5.011 5.011 0 0 0-5.011-5.011h-18.074a5.011 5.011 0 0 0-5.011 5.011v73.954a5.011 5.011 0 0 0 5.011 5.011h18.074a5.012 5.012 0 0 0 5.011-5.011zm46.587 0v-73.954a5.011 5.011 0 0 0-5.011-5.011h-18.074a5.011 5.011 0 0 0-5.011 5.011v73.954a5.011 5.011 0 0 0 5.011 5.011h18.074a5.012 5.012 0 0 0 5.011-5.011zm46.588 0v-73.954a5.011 5.011 0 0 0-5.011-5.011h-18.074a5.011 5.011 0 0 0-5.011 5.011v73.954a5.011 5.011 0 0 0 5.011 5.011h18.074a5.012 5.012 0 0 0 5.011-5.011zm31.568-255.251v-12.445a5.145 5.145 0 0 0-5.145-5.145H185.043a5.145 5.145 0 0 0-5.145 5.145v12.445a5.145 5.145 0 0 0 5.145 5.145H359.16a5.144 5.144 0 0 0 5.145-5.145zm0 149.166v-12.445a5.145 5.145 0 0 0-5.145-5.145H185.043a5.145 5.145 0 0 0-5.145 5.145v12.445a5.145 5.145 0 0 0 5.145 5.145H359.16a5.144 5.144 0 0 0 5.145-5.145z"/>
@@ -61,6 +63,30 @@
                 <div (click)="requestAccept(receiverDatas._id)" class="flex items-center text-xl cursor-pointer bg-green-800 text-white p-2 rounded-[20px]">
                     Accept
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-call-container">
+      
+        <div *ngIf="callStatus === 'calling'">
+          <p>Calling...</p>
+          <button (click)="endCall()">Cancel Call</button>
+        </div>
+      
+        <div *ngIf="callStatus === 'receiving'">
+          <p>Incoming call...</p>
+          <button (click)="acceptCall()">Accept</button>
+          <button (click)="rejectCall()">Reject</button>
+        </div>
+      
+        <div *ngIf="callStatus === 'inCall' || callStatus === 'calling' || callStatus === 'receiving'">
+            <video #localVideo autoplay muted style="width: 200px; height: 150px;"></video>
+            <video #remoteVideo autoplay style="width: 400px; height: 300px;"></video>
+            <div class="call-controls" *ngIf="callStatus === 'inCall'">
+              <button (click)="toggleAudio()">Toggle Audio</button>
+              <button (click)="toggleVideo()">Toggle Video</button>
+              <button (click)="endCall()">End Call</button>
             </div>
         </div>
     </div>

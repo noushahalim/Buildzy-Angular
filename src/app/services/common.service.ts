@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http"
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { loginModel } from "../models/login";
+import { environment } from "src/environment/environment";
 
 @Injectable({
     providedIn:'root'
@@ -11,6 +12,7 @@ import { loginModel } from "../models/login";
 export class CommonService{
     constructor(private http:HttpClient, private router:Router){}
     
+    api = environment.baseUrl
     token=localStorage.getItem('token')
     accessType=localStorage.getItem('accessType')
     id=''
@@ -18,69 +20,69 @@ export class CommonService{
     profileImage=localStorage.getItem('profileImage')
     fullName=''
 
-    signupOtpVerificationApi='http://localhost:3000/signupOtpVerification'
+    signupOtpVerificationApi=`${this.api}/signupOtpVerification`
 
     signupOtpVerification(data:string):Observable<any>{
         
         return this.http.post(this.signupOtpVerificationApi,{otp:data,id:this.id})
     }
 
-    signupResendOtpApi='http://localhost:3000/signupResendOtp'
+    signupResendOtpApi=`${this.api}/signupResendOtp`
 
     signupResendOtp():Observable<any>{
         return this.http.post(this.signupResendOtpApi,{id:this.id})
     }
 
-    forgotPasswordApi='http://localhost:3000/forgotPassword'
+    forgotPasswordApi=`${this.api}/forgotPassword`
 
     forgotPassword(data:string):Observable<any>{
         return this.http.post(this.forgotPasswordApi,data)
     }
 
-    forgotOtpVerificationApi='http://localhost:3000/forgotOtpVerification'
+    forgotOtpVerificationApi=`${this.api}/forgotOtpVerification`
 
     forgotOtpVerification(data:string):Observable<any>{
         return this.http.post(this.forgotOtpVerificationApi,{otp:data,id:this.id})
     }
 
-    forgotResendOtpApi='http://localhost:3000/forgotResendOtp'
+    forgotResendOtpApi=`${this.api}/forgotResendOtp`
 
     forgotResendOtp():Observable<any>{
         return this.http.post(this.forgotResendOtpApi,{id:this.id})
     }
 
-    changePasswordApi='http://localhost:3000/changePassword'
+    changePasswordApi=`${this.api}/changePassword`
 
     changePassword(data:string):Observable<any>{
         return this.http.post(this.changePasswordApi,{password:data,id:this.id})
     }
 
-    loginApi='http://localhost:3000/login'
+    loginApi=`${this.api}/login`
 
     login(data:loginModel):Observable<any>{
         return this.http.post(this.loginApi,data)
     }
 
-    changeProfileApi='http://localhost:3000/profileChange'
+    changeProfileApi=`${this.api}/profileChange`
 
     profileChange(data:any):Observable<any>{
         return this.http.post(this.changeProfileApi,data)
     }
 
-    profileDetailsApi='http://localhost:3000/profileDetails'
+    profileDetailsApi=`${this.api}/profileDetails`
 
     profileDetails():Observable<any>{
         return this.http.get(this.profileDetailsApi)
     }
 
     chatSave(message:any):Observable<any>{
-        const chatSaveApi='http://localhost:3000/chatSave'
+        const chatSaveApi=`${this.api}/chatSave`
 
         return this.http.post(chatSaveApi,message)
     }
 
     notificationCount():Observable<any>{
-        const notificationCount='http://localhost:3000/notificationCount'
+        const notificationCount=`${this.api}/notificationCount`
 
         return this.http.get(notificationCount)
     }
