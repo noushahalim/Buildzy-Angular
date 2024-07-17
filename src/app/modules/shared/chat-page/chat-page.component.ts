@@ -22,8 +22,11 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked 
   chatSessions: { [key: string]: any[] } = {};
   activeChatKey: string = '';
   callStatus: string = 'idle';
+  isAudioMuted: boolean = false;
+  isVideoMuted: boolean = false;
 
   @ViewChild('chatWindow') chatWindow!: ElementRef;
+  @ViewChild('chatWindow2') chatWindow2!: ElementRef;
   @ViewChild('localVideo') localVideo!: ElementRef;
   @ViewChild('remoteVideo') remoteVideo!: ElementRef;
 
@@ -82,6 +85,7 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked 
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['sender'] && changes['sender'].currentValue) {
+      // const id= this.sender+this.receiver
       this.chatService.register(this.sender);
     }
     if (changes['receiver'] && changes['receiver'].currentValue) {
@@ -111,6 +115,9 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked 
 
   ngOnDestroy(): void {
     this.chatService.disconnect();
+    if(this.callStatus!='idle'){
+      this.videoCallService.endCall();
+    }
   }
 
   getChatKey(sender: string, receiver: string): string {
@@ -143,6 +150,10 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked 
   scrollToBottom() {
     if (this.chatWindow) {
       const chatContainer = this.chatWindow.nativeElement;
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+    if (this.chatWindow2) {
+      const chatContainer = this.chatWindow2.nativeElement;
       chatContainer.scrollTop = chatContainer.scrollHeight;
     }
   }
@@ -179,10 +190,12 @@ export class ChatPageComponent implements OnInit , OnChanges , AfterViewChecked 
   }
 
   toggleAudio() {
+    this.isAudioMuted = !this.isAudioMuted;
     this.videoCallService.toggleAudio();
   }
 
   toggleVideo() {
+    this.isVideoMuted = !this.isVideoMuted;
     this.videoCallService.toggleVideo();
   }
 
