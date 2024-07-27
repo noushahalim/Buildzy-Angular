@@ -13,6 +13,7 @@ export class CompanyDetailsComponent implements OnInit{
   workRequests: any
   error: any;
   connectionStatus: boolean = false
+  reviews: any[] = [];
 
   constructor(private clientService:ClientService , private commonService:CommonService , private route:ActivatedRoute , private router:Router){}
 
@@ -41,6 +42,14 @@ export class CompanyDetailsComponent implements OnInit{
       )
     }
     
+    this.clientService.companyReviews(this.companyDetails._id).subscribe(
+      (response)=>{
+        this.reviews = response
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }
 
   connectNow(){
