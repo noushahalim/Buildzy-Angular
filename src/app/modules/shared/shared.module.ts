@@ -8,6 +8,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { OtpComponent } from './otp/otp.component';
 import { CompanyRegistrationFormComponent } from './company-registration-form/company-registration-form.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
+import { RatingComponent } from './rating/rating.component';
 
 
 
@@ -17,14 +18,16 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     SignupComponent,
     OtpComponent,
     CompanyRegistrationFormComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    RatingComponent
   ],
   exports:[
     ButtonComponent,
     SignupComponent,
     OtpComponent,
     CompanyRegistrationFormComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
