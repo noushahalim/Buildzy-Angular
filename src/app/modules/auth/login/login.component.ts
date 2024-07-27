@@ -30,47 +30,53 @@ export class loginComponent implements OnInit{
           const datas:loginModel = this.loginForm.value as loginModel
           this.commonService.login(datas).subscribe(
             (response)=>{
-              if(response.profileImage){
-                localStorage.setItem('profileImage',response.profileImage)
-                this.commonService.profileImage=response.profileImage
-              }
-              if(response.role=='client'){
-                localStorage.setItem('token',response.token)
-                localStorage.setItem('accessType',response.role)
-                this.commonService.token=response.token
-                this.commonService.accessType=response.role
-                this.route.navigate(['/'])
-              }
-              else if(response.role=='engineer'){
-                if(response.registered==true){
-                  localStorage.setItem('token',response.token)
-                  localStorage.setItem('accessType',response.role)
-                  this.commonService.token=response.token
-                  this.commonService.accessType=response.role
-                  this.route.navigate(['/engineer'])
-                }
-                else{
-                  this.engineerService.id= response.id
-                  this.route.navigate(['/engineer/companyRegistration'])
-                }
-              }
+              this.handleLoginResponse(response);
             },
             (error:any)=>{
-              if(error.status==400){
-                this.backendError=error.error
-                setTimeout(() => {
-                    this.backendError=''
-                }, 3000);
-              }
-              else{
-                  console.log(error)
-              }
-              }
+              this.handleLoginError(error);
+            }
           )
         } else {
           console.error('Form is invalid:', this.loginForm.errors);
         }
       }
+
+      handleLoginResponse(response: any) {
+        if (response.profileImage) {
+          localStorage.setItem('profileImage', response.profileImage);
+          this.commonService.profileImage = response.profileImage;
+        }
+        if (response.role == 'client') {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('accessType', response.role);
+          this.commonService.token = response.token;
+          this.commonService.accessType = response.role;
+          this.route.navigate(['/']);
+        } else if (response.role == 'engineer') {
+          if (response.registered == true) {
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('accessType', response.role);
+            this.commonService.token = response.token;
+            this.commonService.accessType = response.role;
+            this.route.navigate(['/engineer']);
+          } else {
+            this.engineerService.id = response.id;
+            this.route.navigate(['/engineer/companyRegistration']);
+          }
+        }
+      }
+
+      handleLoginError(error: any) {
+        if (error.status == 400) {
+          this.backendError = error.error;
+          setTimeout(() => {
+            this.backendError = '';
+          }, 3000);
+        } else {
+          console.log(error);
+        }
+      }
+
       signupButtonClicked(){
         if(this.signupButton=='hidden'){
           this.signupButton='flex'

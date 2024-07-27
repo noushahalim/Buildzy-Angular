@@ -71,4 +71,9 @@ export class ClientService{
         const worksApi=`${this.api}/client/works/`
         return this.http.get(worksApi)
     }
+
+    reviewSubmit(data:any):Observable<any>{
+        const reviewSubmitApi=`${this.api}/client/reviewSubmit/`
+        return this.http.post(reviewSubmitApi,data)
+    }
 }
