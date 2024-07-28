@@ -81,4 +81,9 @@ export class ClientService{
         const companyReviewsApi=`${this.api}/client/companyReviews/${id}`
         return this.http.get(companyReviewsApi)
     }
+
+    invoiceDetails(id:string):Observable<any>{
+        const invoiceDetailsApi=`${this.api}/client/invoiceDetails/${id}`
+        return this.http.get(invoiceDetailsApi)
+    }
 }

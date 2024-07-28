@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { EngineerService } from 'src/app/services/engineer.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { EngineerService } from 'src/app/services/engineer.service';
 })
 export class EngineerWorkDetailsComponent implements OnInit {
   work: any;
+  invoiceDetails:any
   error: string | null = null;
   milestonesChanged = false;
   originalMilestones: boolean[] = [];
@@ -27,6 +30,15 @@ export class EngineerWorkDetailsComponent implements OnInit {
         (error) => {
           console.log(error);
           this.error = 'Failed to load work details. Please try again later.';
+        }
+      );
+
+      this.engineerService.invoiceDetails(workId).subscribe(
+        (response) => {
+          this.invoiceDetails = response;
+        },
+        (error) => {
+          console.log(error);
         }
       );
     }
@@ -72,4 +84,39 @@ export class EngineerWorkDetailsComponent implements OnInit {
       }
     );
   }
+
+    // invvoice 
+    workInvoice(id: string) {
+      const data = document.getElementById('invoice-content');
+      if (!data) return;
+    
+      // Remove the class that hides the invoice
+      data.classList.remove('hide-on-print');
+    
+      // Force any images to load before rendering
+      const images = Array.from(data.getElementsByTagName('img'));
+      Promise.all(images.map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise(resolve => { img.onload = img.onerror = resolve; });
+      })).then(() => {
+        // Render the invoice
+        html2canvas(data, {
+          scale: 2, // Increase resolution
+          useCORS: true, // Allow loading cross-origin images
+          backgroundColor: '#ffffff' // Force white background
+        }).then((canvas) => {
+          const imgWidth = 208;
+          const pageHeight = 295;
+          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+          const contentDataURL = canvas.toDataURL('image/jpeg', 1.0);
+          
+          const pdf = new jsPDF('p', 'mm', 'a4');
+          pdf.addImage(contentDataURL, 'JPEG', 0, 0, imgWidth, imgHeight);
+          pdf.save('Buildzy_invoice.pdf');
+    
+          // Add the class back to hide the invoice
+          data.classList.add('hide-on-print');
+        });
+      });
+    }
 }

@@ -81,4 +81,9 @@ export class EngineerService{
         const updateMilestonesApi=`${this.api}/engineer/updateMilestones`
         return this.http.post(updateMilestonesApi,{workId,milestones})
     }
+
+    invoiceDetails(id:string):Observable<any>{
+        const invoiceDetailsApi=`${this.api}/engineer/invoiceDetails/${id}`
+        return this.http.get(invoiceDetailsApi)
+    }
 }

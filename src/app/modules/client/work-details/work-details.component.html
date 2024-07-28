@@ -41,12 +41,20 @@
             </div>
           </div>
         </div>
-        
-        <div class="bg-gray-50 p-6 mt-6">
-          <h3 class="text-xl font-semibold mb-2 text-gray-700">Additional Information</h3>
-          <p class="text-gray-600"><span class="font-medium">Client:</span> {{ work.clientName }}</p>
-          <p class="text-gray-600"><span class="font-medium">Created:</span> {{ work.createdAt | date:'medium' }}</p>
+
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-50 p-6 mt-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-700">Additional Information</h3>
+            <p class="text-gray-600"><span class="font-medium">Client:</span> {{ work.clientName }}</p>
+            <p class="text-gray-600"><span class="font-medium">Created:</span> {{ work.createdAt | date:'medium' }}</p>
+          </div>
+
+          <div class="flex items-end justify-end">
+            <button (click)="workInvoice(work._id)" class="bg-green-700 text-white p-2 rounded hover:bg-green-900">Download Invoice</button>
+          </div>
+
         </div>
+        
 
         <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-8 mt-8">
           <h3 class="text-2xl font-semibold mb-4 text-white">Share Your Experience With Us</h3>
@@ -83,4 +91,77 @@
         <span class="block sm:inline">{{ error }}</span>
       </div>
     </div>
-  </div>
+
+    <!-- invoice canvas -->
+    <div *ngIf="invoiceDetails" id="invoice-content" class="p-8 bg-white rounded-lg shadow-lg max-w-3xl mx-auto hide-on-print" style="background-color: white;">
+      <div class="flex justify-between items-start mb-8">
+        <div>
+          <div class="w-20 h-20 rounded-full overflow-hidden">
+            <img src="{{ invoiceDetails[0].companyData[0].logo }}" alt="Company Logo" class="h-20 mb-2 object-cover">
+          </div>
+          <h1 class="text-2xl font-bold text-gray-800">{{ invoiceDetails[0].companyData[0].companyName }}</h1>
+          <p class="text-gray-600">{{ invoiceDetails[0].companyData[0].district }}, {{ invoiceDetails[0].companyData[0].state }}</p>
+          <p class="text-gray-600">{{ invoiceDetails[0].companyData[0].companyEmail }}</p>
+          <p class="text-gray-600">+91 {{ invoiceDetails[0].companyData[0].companyMobile }}</p>
+        </div>
+        <div class="text-right">
+          <h2 class="text-3xl font-bold text-blue-600 mb-2">INVOICE</h2>
+          <p class="text-gray-600">Invoice Date: {{ invoiceDetails[0].createdAt | date:'mediumDate' }}</p>
+          <p class="text-gray-600">Project Start: {{ invoiceDetails[0].startDate | date:'mediumDate' }}</p>
+        </div>
+      </div>
+    
+      <div class="border-t border-b border-gray-200 py-4 mb-8">
+        <h3 class="text-xl font-semibold mb-2">Bill To:</h3>
+        <p class="text-gray-800 font-medium">{{ invoiceDetails[0].clientName }}</p>
+        <p class="text-gray-600">{{ invoiceDetails[0].projectLocation }}</p>
+      </div>
+    
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Project Details</h3>
+        <div class="bg-gray-100 rounded-lg p-4">
+          <p class="text-gray-800"><span class="font-medium">Project Title:</span> {{ invoiceDetails[0].projectTitle }}</p>
+          <p class="text-gray-800"><span class="font-medium">Type:</span> {{ invoiceDetails[0].projectType }}</p>
+          <p class="text-gray-800"><span class="font-medium">Description:</span> {{ invoiceDetails[0].projectDescription }}</p>
+          <p class="text-gray-800"><span class="font-medium">Duration:</span> {{ invoiceDetails[0].startDate | date:'mediumDate' }} to {{ invoiceDetails[0].endDate | date:'mediumDate' }}</p>
+        </div>
+      </div>
+    
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4">Milestones</h3>
+        <table class="w-full text-left">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="py-2 px-4">Description</th>
+              <th class="py-2 px-4">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let milestone of invoiceDetails[0].milestones" class="border-b">
+              <td class="py-2 px-4">{{ milestone.description }}</td>
+              <td class="py-2 px-4">
+                <span [ngClass]="{'text-green-600': milestone.status, 'text-red-600': !milestone.status}">
+                  {{ milestone.status ? 'Completed' : 'Pending' }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="flex justify-between items-center mb-8">
+        <div>
+          <h3 class="text-xl font-semibold">Total Estimated Cost</h3>
+          <p class="text-gray-600">This is an estimate and may be subject to change</p>
+        </div>
+        <div class="text-right">
+          <p class="text-3xl font-bold text-blue-600">₹{{ invoiceDetails[0].estimatedCost | number:'1.2-2' }}</p>
+        </div>
+      </div>
+    
+      <div class="text-center text-gray-600 text-sm">
+        <p>Thank you for your business!</p>
+        <p>For any queries, please contact us at {{ invoiceDetails[0].companyData[0].companyEmail }}</p>
+      </div>
+    </div>
+</div>
