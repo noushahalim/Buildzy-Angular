@@ -1,5 +1,5 @@
-<div class="min-h-screen h-full border font-sans bg-clientHome bg-contain overflow-hidden bg-no-repeat bg-[#a6a8a5]">
-  <div class="sticky z-50 top-0 flex flex-wrap w-full lg:h-20 ">
+<div class="min-h-screen h-full border font-sans bg-clientHome lg:bg-contain overflow-hidden bg-no-repeat bg-[#a6a8a5] xl:pt-20">
+  <div class="fixed z-50 top-0 flex flex-wrap w-full lg:h-20 ">
     <div class="w-full flex items-center justify-center lg:w-1/2 ">
         <img class="w-28" src="../../assets/images/logo.png" alt="logo">
         <svg (click)="menuClicked()" xmlns="http://www.w3.org/2000/svg" class="w-6 sm:hidden absolute right-5" viewBox="0 0 20 20"><path fill="currentColor" d="M1 3v2h18V3zm0 8h18V9H1zm0 6h18v-2H1z"/></svg>
@@ -97,8 +97,10 @@
     </div>
   </div>
     
-  <!-- Hero Section -->
-  <section class="relative h-screen">
+<!-- Hero Section -->
+<section class="relative min-h-screen">
+  <!-- XL and larger screens -->
+  <div class="hidden xl:flex items-center justify-center h-full">
     <div class="absolute container mx-auto px-4 -left-60 top-36 z-10">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-5xl font-bold mb-6 text-gray-800">Build Your Dream With Us</h1>
@@ -111,54 +113,74 @@
     <div class="relative top-[-250px] left-20 h-[700px] rotate-45 overflow-hidden pl-60">
       <img src="../../../../assets/images/peopleWithHome.jpg" alt="Cityscape" class="w-full -rotate-45 object-cover">
     </div>
- </section>
-    
-  <!-- Stats Section -->
-  <section class="py-16 flex">
-    <div class="w-1/2"></div>
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center relative -top-20 -right-60 h-56 w-56 flex flex-col items-center justify-center">
-          <h2 class="text-4xl font-bold text-orange-500 mb-2">10+</h2>
-          <p class="text-gray-600">Years of Experienced Engineers</p>
-        </div>
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center relative -top-40 -right-60 h-56 w-56 flex flex-col items-center justify-center">
-          <h2 class="text-4xl font-bold text-orange-500 mb-2">25+</h2>
-          <p class="text-gray-600">Projects Completed</p>
-        </div>
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center relative top-24 right-16 h-56 w-56 flex flex-col items-center justify-center">
-          <h2 class="text-4xl font-bold text-orange-500 mb-2">275+</h2>
-          <p class="text-gray-600">Happy Clients</p>
-        </div>
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center relative -top-20 -right-60 h-56 w-56 flex flex-col items-center justify-center">
-          <h2 class="text-4xl font-bold text-orange-500 mb-2">12+</h2>
-          <p class="text-gray-600">Popular Companies</p>
-        </div>
+  </div>
+  
+  <!-- Below XL screens -->
+  <div class=" xl:hidden flex items-center justify-center px-4 sm:px-6 lg:px-8 min-h-screen">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="relative h-full w-full">
+        <img src="../../../../assets/images/peopleWithHome.jpg" alt="Cityscape" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover">
       </div>
     </div>
-  </section>
+    <div class="relative z-10 text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-800">Build Your Dream With Us</h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8">Find Skilled Engineers and Custom Your Project Today.</p>
+      <button class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300">
+        START A PROJECT
+      </button>
+    </div>
+  </div>
+</section>
+
+    
+<!-- Stats Section -->
+<section class="py-16 lg:flex px-4 sm:px-6 lg:px-8">
+  <div class="w-1/2 hidden lg:block"></div>
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center lg:relative lg:-top-20 lg:-right-60 h-56 w-56 flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-bold text-orange-500 mb-2">10+</h2>
+        <p class="text-gray-600">Years of Experienced Engineers</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center lg:relative lg:-top-40 lg:-right-60 h-56 w-56 flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-bold text-orange-500 mb-2">25+</h2>
+        <p class="text-gray-600">Projects Completed</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center lg:relative lg:top-24 lg:-right-0 xl:right-12 h-56 w-56 flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-bold text-orange-500 mb-2">275+</h2>
+        <p class="text-gray-600">Happy Clients</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center lg:relative lg:-top-20 lg:-right-60 h-56 w-56 flex flex-col items-center justify-center">
+        <h2 class="text-4xl font-bold text-orange-500 mb-2">12+</h2>
+        <p class="text-gray-600">Popular Companies</p>
+      </div>
+    </div>
+  </div>
+</section>
     
   <!-- About Section -->
-  <section class="py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pl-3 pr-3">
-    <div class="container mx-auto px-4 bg-white bg-opacity-75 rounded-lg p-2">
-      <h2 class="text-3xl font-bold mb-8 text-gray-800 flex justify-center">ABOUT BUILDZY</h2>
-      <div>
-        <div>
+  <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="bg-white bg-opacity-75 rounded-lg p-6">
+          <h2 class="text-3xl font-bold mb-8 text-gray-800 text-center">ABOUT BUILDZY</h2>
           <p class="text-gray-900 mb-6">
             At Buildzy, we believe in transforming the construction landscape through innovation, integrity, and excellence. With a dedicated team of industry professionals, we have been at the forefront of delivering top-notch construction solutions that cater to diverse needs across various sectors. Our commitment to quality and customer satisfaction is reflected in every project we undertake, from residential developments to large-scale industrial constructions.
-            <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our mission is to build not just structures, but long-lasting relationships with our clients by consistently exceeding their expectations. We leverage cutting-edge technology and sustainable practices to ensure that our projects are not only efficient but also environmentally responsible.
-            <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With years of experience and a proven track record, Buildzy stands as a trusted partner in the construction industry, known for our reliability, transparency, and unwavering dedication to excellence. We invite you to explore our journey, values, and the comprehensive services we offer that set us apart in the construction domain.
           </p>
-          <div class="flex justify-end pr-10">
+          <p class="text-gray-900 mb-6">
+            Our mission is to build not just structures, but long-lasting relationships with our clients by consistently exceeding their expectations. We leverage cutting-edge technology and sustainable practices to ensure that our projects are not only efficient but also environmentally responsible.
+          </p>
+          <p class="text-gray-900 mb-6">
+            With years of experience and a proven track record, Buildzy stands as a trusted partner in the construction industry, known for our reliability, transparency, and unwavering dedication to excellence. We invite you to explore our journey, values, and the comprehensive services we offer that set us apart in the construction domain.
+          </p>
+          <div class="flex justify-end">
             <button class="text-orange-500 font-semibold hover:underline">READ MORE</button>
           </div>
         </div>
+        <div class="h-[400px] overflow-hidden rounded shadow-lg">
+          <img src="../../../../assets/images/handShaking.jpg" alt="About Us" class="w-full h-full object-cover">
+        </div>
       </div>
-    </div>
-    <div class="h-[400px] overflow-hidden rounded shadow-lg">
-      <img src="../../../../assets/images/handShaking.jpg" alt="About Us" class="rounded-lg shadow-md w-full object-cover">
     </div>
   </section>
     
