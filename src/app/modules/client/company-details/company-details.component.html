@@ -73,7 +73,7 @@
         </div>
 
         <div class="w-full mt-8 flex justify-center">
-            <button *ngIf="!connectionStatus" (click)="connectNow()"
+            <button *ngIf="!connectionStatus && isLogined" (click)="connectNow()"
                 class="flex items-center gap-2 text-xl bg-blue-700 text-white p-4 rounded-full hover:bg-blue-500">
                 Connect Now
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -82,6 +82,15 @@
                         d="M108.58 64L62.47 97.81V76.72H19.42V51.49h43.04v-21.3L108.58 64z" />
                 </svg>
             </button>
+            <button *ngIf="!connectionStatus && !isLogined" routerLink="/auth/login"
+            class="flex items-center gap-2 text-xl bg-green-700 text-white p-4 rounded-full hover:bg-green-500">
+            Login Now
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                viewBox="0 0 128 128">
+                <path fill="#fff"
+                    d="M108.58 64L62.47 97.81V76.72H19.42V51.49h43.04v-21.3L108.58 64z" />
+            </svg>
+        </button>
             <button *ngIf="connectionStatus" (click)="messageNow()"
                 class="flex items-center gap-2 text-xl bg-green-700 text-white p-4 rounded-full hover:bg-green-500">
                 Message Now

@@ -14,6 +14,7 @@ export class CompanyDetailsComponent implements OnInit{
   error: any;
   connectionStatus: boolean = false
   reviews: any[] = [];
+  isLogined: boolean = false
 
   constructor(private clientService:ClientService , private commonService:CommonService , private route:ActivatedRoute , private router:Router){}
 
@@ -26,12 +27,13 @@ export class CompanyDetailsComponent implements OnInit{
         this.error = error
       }
     )
-    this.clientService.companyChats(this.companyDetails.engineerId).subscribe(
-      (response)=>{
-        this.connectionStatus = true
-      }
-    )
     if(this.commonService.token){
+      this.isLogined = true
+      this.clientService.companyChats(this.companyDetails.engineerId).subscribe(
+        (response)=>{
+          this.connectionStatus = true
+        }
+      )
       this.clientService.workRequests(this.companyDetails.engineerId).subscribe(
         (response)=>{
           this.workRequests = response
