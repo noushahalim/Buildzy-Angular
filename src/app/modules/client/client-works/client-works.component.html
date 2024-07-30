@@ -1,44 +1,64 @@
-<div class="min-h-screen h-full bg-[#E2E5FF] pb-10">
+<div class="min-h-screen h-full bg-[#E2E5FF]">
   <client-navbar></client-navbar>
   <div class="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
     <h1 class="text-4xl font-bold text-center mb-12 text-gray-800">My Works</h1>
-    <div *ngIf="!works || works.length === 0" class="flex flex-col items-center justify-center space-y-6">
-      <p class="text-xl text-gray-600 text-center">You don't have any works yet.</p>
-      <p class="text-lg text-gray-500 text-center">Start hiring engineer for your work!</p>
-      <button routerLink="/engineers" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300">
+    <div *ngIf="!works || works.length === 0"
+      class="flex flex-col items-center justify-center space-y-6">
+      <p class="text-xl text-gray-600 text-center">You don't have any works
+        yet.</p>
+      <p class="text-lg text-gray-500 text-center">Start hiring engineer for
+        your work!</p>
+      <button routerLink="/engineers"
+        class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300">
         Hire a Engineer
       </button>
     </div>
-    <div *ngIf="works && works.length > 0" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <div *ngFor="let work of works" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+    <div *ngIf="works && works.length > 0"
+      class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div *ngFor="let work of works"
+        class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
         <div class="p-6">
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">{{ work.projectTitle }}</h2>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">{{
+            work.projectTitle }}</h2>
           <div class="space-y-2 text-sm">
             <p class="flex items-center text-gray-700">
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+              <svg class="w-4 h-4 mr-2" fill="currentColor"
+                viewBox="0 0 20 20"><path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
               {{ work.companyName }}
             </p>
             <p class="flex items-center text-gray-700">
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+              <svg class="w-4 h-4 mr-2" fill="currentColor"
+                viewBox="0 0 20 20"><path fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"></path></svg>
               {{ work.projectLocation }}
             </p>
             <p class="flex items-center text-gray-700">
-              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-              {{ work.startDate | date:'mediumDate' }} - {{ work.endDate | date:'mediumDate' }}
+              <svg class="w-4 h-4 mr-2" fill="currentColor"
+                viewBox="0 0 20 20"><path fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path></svg>
+              {{ work.startDate | date:'mediumDate' }} - {{ work.endDate |
+              date:'mediumDate' }}
             </p>
           </div>
           <div class="mt-4">
-            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+            <span
+              class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
               {{ getLastMilestoneDescription(work.milestones) }}
             </span>
           </div>
         </div>
         <div class="bg-gray-50 px-6 py-4">
-          <button (click)="viewDetails(work._id)" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300">
+          <button (click)="viewDetails(work._id)"
+            class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300">
             View Details
           </button>
         </div>
       </div>
     </div>
   </div>
+
+  <app-footer></app-footer>
 </div>

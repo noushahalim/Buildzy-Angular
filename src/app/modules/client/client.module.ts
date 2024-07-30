@@ -15,6 +15,8 @@ import { ClientWorksComponent } from './client-works/client-works.component';
 import { WorkDetailsComponent } from './work-details/work-details.component';
 import { ClientNavbarComponent } from './client-navbar/client-navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClientAboutUsComponent } from './client-about-us/client-about-us.component';
+import { FooterComponent } from './footer/footer.component';
 
 registerLocaleData(localeIn, 'en-IN');
 
@@ -28,7 +30,9 @@ registerLocaleData(localeIn, 'en-IN');
     WorkRequestDetailsComponent,
     ClientWorksComponent,
     WorkDetailsComponent,
-    ClientNavbarComponent
+    ClientNavbarComponent,
+    ClientAboutUsComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

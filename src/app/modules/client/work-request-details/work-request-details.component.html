@@ -1,59 +1,69 @@
 <div class="bg-[#E2E5FF] ">
-    <client-navbar></client-navbar>
-    <div class="min-h-screen p-4 sm:p-8 flex justify-center items-center">
-        <div class="bg-white shadow-lg rounded-lg max-w-4xl w-full">
-          <div class="bg-gradient-to-r from-blue-500 to-green-500 text-white text-center py-4 rounded-t-lg">
-            <h1 class="text-3xl font-bold">{{ workDetails.projectTitle }}</h1>
+  <client-navbar></client-navbar>
+  <div class="min-h-screen p-4 sm:p-8 flex justify-center items-center">
+    <div class="bg-white shadow-lg rounded-lg max-w-4xl w-full">
+      <div
+        class="bg-gradient-to-r from-blue-500 to-green-500 text-white text-center py-4 rounded-t-lg">
+        <h1 class="text-3xl font-bold">{{ workDetails.projectTitle }}</h1>
+      </div>
+      <div class="p-6">
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold text-gray-700">Project
+            Description</h2>
+          <p class="text-gray-600">{{ workDetails.projectDescription }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Project
+              Location</h2>
+            <p class="text-gray-600">{{ workDetails.projectLocation }}</p>
           </div>
-          <div class="p-6">
-            <div class="mb-6">
-              <h2 class="text-xl font-semibold text-gray-700">Project Description</h2>
-              <p class="text-gray-600">{{ workDetails.projectDescription }}</p>
-            </div>
-      
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Project Location</h2>
-                <p class="text-gray-600">{{ workDetails.projectLocation }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Project Type</h2>
-                <p class="text-gray-600">{{ workDetails.projectType }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Start Date</h2>
-                <p class="text-gray-600">{{ formatDate(workDetails.startDate) }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">End Date</h2>
-                <p class="text-gray-600">{{ formatDate(workDetails.endDate) }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Estimated Cost</h2>
-                <p class="text-gray-600">{{ workDetails.estimatedCost | currency:'INR' }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Client Name</h2>
-                <p class="text-gray-600">{{ workDetails.clientName }}</p>
-              </div>
-              <div>
-                <h2 class="text-xl font-semibold text-gray-700">Company Name</h2>
-                <p class="text-gray-600">{{ workDetails.companyName }}</p>
-              </div>
-            </div>
-      
-            <div class="mb-6">
-              <h2 class="text-xl font-semibold text-gray-700">Milestones</h2>
-              <ul class="list-disc list-inside text-gray-600">
-                <li *ngFor="let milestone of workDetails.milestones">{{ milestone.description }} ({{ milestone.status ? 'Completed' : 'Pending' }})</li>
-              </ul>
-            </div>
-      
-            <div class="flex justify-end gap-4">
-              <button (click)="deleteProject(workDetails._id)" class="px-6 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">Delete</button>
-              <button (click)="agreeProject(workDetails._id)" class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Agree</button>
-            </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Project Type</h2>
+            <p class="text-gray-600">{{ workDetails.projectType }}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Start Date</h2>
+            <p class="text-gray-600">{{ formatDate(workDetails.startDate) }}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">End Date</h2>
+            <p class="text-gray-600">{{ formatDate(workDetails.endDate) }}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Estimated Cost</h2>
+            <p class="text-gray-600">{{ workDetails.estimatedCost |
+              currency:'INR' }}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Client Name</h2>
+            <p class="text-gray-600">{{ workDetails.clientName }}</p>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold text-gray-700">Company Name</h2>
+            <p class="text-gray-600">{{ workDetails.companyName }}</p>
           </div>
         </div>
-      </div>    
+
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold text-gray-700">Milestones</h2>
+          <ul class="list-disc list-inside text-gray-600">
+            <li *ngFor="let milestone of workDetails.milestones">{{
+              milestone.description }} ({{ milestone.status ? 'Completed' :
+              'Pending' }})</li>
+          </ul>
+        </div>
+
+        <div class="flex justify-end gap-4">
+          <button (click)="deleteProject(workDetails._id)"
+            class="px-6 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400">Delete</button>
+          <button (click)="agreeProject(workDetails._id)"
+            class="px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
 </div>

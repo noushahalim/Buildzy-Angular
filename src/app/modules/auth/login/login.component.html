@@ -1,61 +1,110 @@
 <div class="w-screen h-screen absolute truncate hidden lg:block">
-    <div class="w-[784px] h-[631px] rounded-full rotate-12 relative left-[-320px] top-[-290px] bg-[#303771]">
-        <div class="w-[880px] h-[633px] rounded-full relative left-[-140px] top-[-10px] bg-[#7E88E1]"></div>
+    <div
+        class="w-[784px] h-[631px] rounded-full rotate-12 relative left-[-320px] top-[-290px] bg-[#303771]">
+        <div
+            class="w-[880px] h-[633px] rounded-full relative left-[-140px] top-[-10px] bg-[#7E88E1]"></div>
     </div>
-    <div class="w-[400px] h-[400px] rounded-full rotate-12 relative left-[1200px] bottom-[200px] bg-[#303771]">
-        <div class="w-[400px] h-[400px] rounded-full relative left-[15px] bottom-[-20px] bg-[#7E88E1]"></div>
+    <div
+        class="w-[400px] h-[400px] rounded-full rotate-12 relative left-[1200px] bottom-[200px] bg-[#303771]">
+        <div
+            class="w-[400px] h-[400px] rounded-full relative left-[15px] bottom-[-20px] bg-[#7E88E1]"></div>
     </div>
 </div>
 
 <div class="w-screen h-screen bg-white flex items-center justify-center">
-    <div class="w-[400px] md:w-[800px] h-[450px] bg-white rounded-xl relative shadow-[0_0_15px_-2px_rgba(0,0,0,0.2)] truncate flex">
-        
-        <div class="w-full md:w-1/2 h-full flex flex-col items-center justify-center gap-2">
+    <div
+        class="w-[400px] md:w-[800px] h-[450px] bg-white rounded-xl relative shadow-[0_0_15px_-2px_rgba(0,0,0,0.2)] truncate flex">
+
+        <div
+            class="w-full md:w-1/2 h-full flex flex-col items-center justify-center gap-2">
             <p class="text-[18px] font-medium leading-10">WELCOME TO</p>
-            <P class="text-[50px] font-medium text-[#303771] leading-10">BUILDZY</P>
-            <P class="text-[15px] font-light text-[#707070] w-2/3 text-wrap text-center flex leading-4 mt-2 mb-2">Login to continue building your future with Buildzy..</P>
-            <form class="w-2/3" [formGroup]="loginForm" (ngSubmit)="onFormSubmited()">
-                <div class="border w-full h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="m16.484 11.976l6.151-5.344v10.627zm-7.926.905l2.16 1.875c.339.288.781.462 1.264.462h.017h-.001h.014c.484 0 .926-.175 1.269-.465l-.003.002l2.16-1.875l6.566 5.639H1.995zM1.986 5.365h20.03l-9.621 8.356a.612.612 0 0 1-.38.132h-.014h.001h-.014a.61.61 0 0 1-.381-.133l.001.001zm-.621 1.266l6.15 5.344l-6.15 5.28zm21.6-2.441c-.24-.12-.522-.19-.821-.19H1.859a1.87 1.87 0 0 0-.835.197l.011-.005A1.856 1.856 0 0 0 0 5.855v12.172a1.86 1.86 0 0 0 1.858 1.858h20.283a1.86 1.86 0 0 0 1.858-1.858V5.855c0-.727-.419-1.357-1.029-1.66l-.011-.005z"/></svg>
-                    <input class="ml-2 w-56 rounded" type="email" placeholder="Email" name="email" formControlName="email">
+            <p
+                class="text-[50px] font-medium text-[#303771] leading-10">BUILDZY</p>
+            <p
+                class="text-[15px] font-light text-[#707070] w-2/3 text-wrap text-center flex leading-4 mt-2 mb-2">Login
+                to continue building your future with Buildzy..</p>
+            <form class="w-2/3" [formGroup]="loginForm"
+                (ngSubmit)="onFormSubmited()">
+                <div
+                    class="border w-full h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8"
+                        viewBox="0 0 24 24"><path fill="currentColor"
+                            d="m16.484 11.976l6.151-5.344v10.627zm-7.926.905l2.16 1.875c.339.288.781.462 1.264.462h.017h-.001h.014c.484 0 .926-.175 1.269-.465l-.003.002l2.16-1.875l6.566 5.639H1.995zM1.986 5.365h20.03l-9.621 8.356a.612.612 0 0 1-.38.132h-.014h.001h-.014a.61.61 0 0 1-.381-.133l.001.001zm-.621 1.266l6.15 5.344l-6.15 5.28zm21.6-2.441c-.24-.12-.522-.19-.821-.19H1.859a1.87 1.87 0 0 0-.835.197l.011-.005A1.856 1.856 0 0 0 0 5.855v12.172a1.86 1.86 0 0 0 1.858 1.858h20.283a1.86 1.86 0 0 0 1.858-1.858V5.855c0-.727-.419-1.357-1.029-1.66l-.011-.005z" /></svg>
+                    <input class="ml-2 w-56 rounded focus:outline-none" type="email"
+                        placeholder="Email" name="email"
+                        formControlName="email">
                 </div>
-                <small class="text-red-600" *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
+                <small class="text-red-600"
+                    *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched">
                     *Email is required
-                  </small>
-                  <small class="text-red-600" *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
+                </small>
+                <small class="text-red-600"
+                    *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched">
                     *Please enter a valid email address
-                  </small>
-                <div class="border w-full h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 16 16"><path fill="currentColor" d="M13.35 16H2.65C1.74 16 1 15.26 1 14.35v-7.7C1 5.74 1.74 5 2.65 5h10.7c.91 0 1.65.74 1.65 1.65v7.69c0 .91-.74 1.65-1.65 1.65ZM2.65 6c-.36 0-.65.29-.65.65v7.69c0 .36.29.65.65.65h10.7c.36 0 .65-.29.65-.65V6.65c0-.36-.29-.65-.65-.65H2.65Z"/><path fill="currentColor" d="M12.54 6H3.46V4.54C3.46 2.04 5.5 0 8 0s4.54 2.04 4.54 4.54V6ZM4.46 5h7.08v-.46C11.54 2.59 9.95 1 8 1S4.46 2.59 4.46 4.54V5Z"/><circle cx="12" cy="10.5" r="1" fill="currentColor"/><circle cx="8" cy="10.5" r="1" fill="currentColor"/><circle cx="4" cy="10.5" r="1" fill="currentColor"/></svg>
-                    <input class="ml-2 w-56 rounded" type="password" placeholder="Password" name="password" formControlName="password">
+                </small>
+                <div
+                    class="border w-full h-8 border-[#AFAFAF] rounded-lg flex items-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8"
+                        viewBox="0 0 16 16"><path fill="currentColor"
+                            d="M13.35 16H2.65C1.74 16 1 15.26 1 14.35v-7.7C1 5.74 1.74 5 2.65 5h10.7c.91 0 1.65.74 1.65 1.65v7.69c0 .91-.74 1.65-1.65 1.65ZM2.65 6c-.36 0-.65.29-.65.65v7.69c0 .36.29.65.65.65h10.7c.36 0 .65-.29.65-.65V6.65c0-.36-.29-.65-.65-.65H2.65Z" /><path
+                            fill="currentColor"
+                            d="M12.54 6H3.46V4.54C3.46 2.04 5.5 0 8 0s4.54 2.04 4.54 4.54V6ZM4.46 5h7.08v-.46C11.54 2.59 9.95 1 8 1S4.46 2.59 4.46 4.54V5Z" /><circle
+                            cx="12" cy="10.5" r="1"
+                            fill="currentColor" /><circle cx="8" cy="10.5" r="1"
+                            fill="currentColor" /><circle cx="4" cy="10.5" r="1"
+                            fill="currentColor" /></svg>
+                    <input class="ml-2 w-56 rounded focus:outline-none" type="password"
+                        placeholder="Password" name="password"
+                        formControlName="password">
                 </div>
-                <small class="text-red-600" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
+                <small class="text-red-600"
+                    *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
                     *Password is required
-                  </small>
-                  <div class="w-full flex justify-end">
-                        <a routerLink="/auth/forgotPassword" class="text-sm text-[#303771]">Forgot password?</a>
-                  </div>
-                  <small class="text-red-600 w-full flex justify-center" *ngIf="backendError">{{backendError}}</small>
-                <button [disabled]="!loginForm.valid" type="submit" class="w-full justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'">LOGIN</button>
+                </small>
+                <div class="w-full flex justify-end">
+                    <a routerLink="/auth/forgotPassword"
+                        class="text-sm text-[#303771]">Forgot password?</a>
+                </div>
+                <small class="text-red-600 w-full flex justify-center"
+                    *ngIf="backendError">{{backendError}}</small>
+                <button [disabled]="!loginForm.valid" type="submit"
+                    class="w-full justify-center h-10 bg-[#303771] text-white text-xl font-medium rounded-lg flex items-center mt-3 hover:bg-[#7E88E1]'">LOGIN</button>
             </form>
-            
-            <p class="font-medium text-sm">or</p>
+
+            <!-- <p class="font-medium text-sm">or</p>
             <div class="flex items-center mt-[-10px]">
                 <p>Continue with</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
-            </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 ml-2 h-8"
+                    viewBox="0 0 48 48"><path fill="#FFC107"
+                        d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" /><path
+                        fill="#FF3D00"
+                        d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z" /><path
+                        fill="#4CAF50"
+                        d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" /><path
+                        fill="#1976D2"
+                        d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" /></svg>
+            </div> -->
             <div class="flex gap-1 items-center">
                 <p>Don't have an account?</p>
-                <button (click)="signupButtonClicked()" class="text-[#303771] text-lg font-medium cursor-pointer hover:text-[#7E88E1]">SignUp Now</button>
+                <button (click)="signupButtonClicked()"
+                    class="text-[#303771] text-lg font-medium cursor-pointer hover:text-[#7E88E1]">SignUp
+                    Now</button>
             </div>
             <div class="{{signupButton}} flex items-center gap-2">
-                <shared-button [name]="'User'" [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#4CAF50] h-8'" [routerLink]="'/auth/signup'"></shared-button>
-                <shared-button [name]="'Engineer'" [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#7E88E1] h-8'" [routerLink]="'/auth/engineer/signup'"></shared-button>
+                <shared-button [name]="'User'"
+                    [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#4CAF50] h-8'"
+                    [routerLink]="'/auth/signup'"></shared-button>
+                <shared-button [name]="'Engineer'"
+                    [style]="'text-white text-lg font-medium cursor-pointer hover:text-[#303771]  rounded-lg w-24 bg-[#7E88E1] h-8'"
+                    [routerLink]="'/auth/engineer/signup'"></shared-button>
             </div>
         </div>
-        <div class="w-1/2 h-full bg-engineer1 bg-cover bg-center items-center justify-center flex-col hidden md:flex">
-            <img class="w-60" src="../../../assets/images/logo.png" alt="">
-            <p class="w-56 text-[11px] text-[#303771] text-wrap">Bridge the gap. Buildzy connects users & engineers to build a better future, together.</p>
+        <div
+            class="w-1/2 h-full bg-engineer1 bg-cover bg-center items-center justify-center flex-col hidden md:flex">
+            <img class="w-60" src="../../../assets/images/logo.png" alt>
+            <p class="w-56 text-[11px] text-[#303771] text-wrap">Bridge the gap.
+                Buildzy connects users & engineers to build a better future,
+                together.</p>
         </div>
     </div>
 </div>

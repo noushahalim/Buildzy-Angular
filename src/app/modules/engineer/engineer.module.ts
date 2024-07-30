@@ -13,6 +13,8 @@ import { WorkRequestComponent } from './work-request/work-request.component';
 import { EngineerNavbarComponent } from './engineer-navbar/engineer-navbar.component';
 import { EngineerWorksComponent } from './engineer-works/engineer-works.component';
 import { EngineerWorkDetailsComponent } from './engineer-work-details/engineer-work-details.component';
+import { EngineerAboutUsComponent } from './engineer-about-us/engineer-about-us.component';
+import { EngineerFooterComponent } from './engineer-footer/engineer-footer.component';
 
 
 
@@ -27,7 +29,9 @@ import { EngineerWorkDetailsComponent } from './engineer-work-details/engineer-w
     WorkRequestComponent,
     EngineerNavbarComponent,
     EngineerWorksComponent,
-    EngineerWorkDetailsComponent
+    EngineerWorkDetailsComponent,
+    EngineerAboutUsComponent,
+    EngineerFooterComponent
   ],
   imports: [
     CommonModule,

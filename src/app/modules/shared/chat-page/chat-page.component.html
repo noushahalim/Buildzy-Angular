@@ -1,159 +1,194 @@
-<div class="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center p-4">
-  <div class="w-full max-w-7xl bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col" style="height: 95vh;">
+<div
+  class="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center p-4">
+  <div
+    class="w-full max-w-7xl bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
+    style="height: 95vh;">
     <!-- Existing chat interface -->
-    <div [ngClass]="{'md:w-1/2': callStatus === 'inCall'}" class="flex flex-col h-full">
+    <div [ngClass]="{'md:w-1/2': callStatus === 'inCall'}"
+      class="flex flex-col h-full">
       <!-- Header -->
-      <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 flex items-center space-x-4">
-          <button (click)="backButton()" class="text-white hover:text-indigo-200 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-            </button>
-      
-            <div class="flex-shrink-0">
-              <img class="h-12 w-12 rounded-full object-cover border-2 border-white"
-                src="{{receiverDatas.logo||receiverDatas.profile}}" alt="Profile">
-            </div>
-      
-            <div class="flex-1 min-w-0">
-              <h2 class="text-lg font-medium text-white truncate">
-                {{receiverDatas.companyName||receiverDatas.fullName}}
-              </h2>
-              <!-- <p class="text-indigo-200 text-sm truncate">Online</p> -->
-            </div>
-      
-            <div *ngIf="connected" class="flex space-x-2">
-              <button *ngIf="callStatus === 'idle'" (click)="startVideoCall()"
-                class="text-white hover:bg-indigo-700 rounded-full p-2 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-              </button>
-      
-              <button *ngIf="role=='engineer'" routerLink="/engineer/workRequest/{{receiverDatas._id}}"
-                class="text-white hover:bg-indigo-700 rounded-full p-2 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </button>
-            </div>
+      <div
+        class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 flex items-center space-x-4">
+        <button (click)="backButton()"
+          class="text-white hover:text-indigo-200 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </button>
+
+        <div class="flex-shrink-0">
+          <img class="h-12 w-12 rounded-full object-cover border-2 border-white"
+            src="{{receiverDatas.logo||receiverDatas.profile}}" alt="Profile">
+        </div>
+
+        <div class="flex-1 min-w-0">
+          <h2 class="text-lg font-medium text-white truncate">
+            {{receiverDatas.companyName||receiverDatas.fullName}}
+          </h2>
+          <!-- <p class="text-indigo-200 text-sm truncate">Online</p> -->
+        </div>
+
+        <div *ngIf="connected" class="flex space-x-2">
+          <button *ngIf="callStatus === 'idle'" (click)="startVideoCall()"
+            class="text-white hover:bg-indigo-700 rounded-full p-2 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
+
+          <button *ngIf="role=='engineer'"
+            routerLink="/engineer/workRequest/{{receiverDatas._id}}"
+            class="text-white hover:bg-indigo-700 rounded-full p-2 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <!-- Chat messages -->
       <div #chatWindow class="flex-grow overflow-y-auto p-4 space-y-4">
-          <ng-container *ngFor="let message of messages">
-              <div [ngClass]="{'justify-start': message.sender === receiver, 'justify-end': message.sender === sender}"
-                class="flex">
-                <div
-                  [ngClass]="{'bg-indigo-100 text-indigo-800': message.sender === receiver, 'bg-purple-100 text-purple-800': message.sender === sender}"
-                  class="max-w-xs md:max-w-md rounded-lg px-4 py-2 shadow">
-                  <p class="text-sm">{{message.message}}</p>
-                </div>
-              </div>
-            </ng-container>
+        <ng-container *ngFor="let message of messages">
+          <div
+            [ngClass]="{'justify-start': message.sender === receiver, 'justify-end': message.sender === sender}"
+            class="flex">
+            <div
+              [ngClass]="{'bg-indigo-100 text-indigo-800': message.sender === receiver, 'bg-purple-100 text-purple-800': message.sender === sender}"
+              class="max-w-xs md:max-w-md rounded-lg px-4 py-2 shadow">
+              <p class="text-sm">{{message.message}}</p>
+            </div>
+          </div>
+        </ng-container>
       </div>
 
       <!-- Input area -->
       <div class="border-t border-gray-200 p-4">
-          <div *ngIf="connected" class="flex space-x-3">
-              <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"
-                class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                type="text" placeholder="Type your message...">
-              <button (click)="sendMessage()"
-                class="bg-indigo-500 text-white rounded-full p-2 hover:bg-indigo-600 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </button>
-            </div>
-            <div *ngIf="!connected && !role" class="text-center">
-              <span
-                class="inline-block bg-gray-200 rounded-full px-4 py-2 text-sm font-semibold text-gray-700">Requested</span>
-            </div>
-            <div *ngIf="!connected && role=='engineer'" class="text-center">
-              <button (click)="requestAccept(receiverDatas._id)"
-                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors">
-                Accept
-              </button>
-            </div>
+        <div *ngIf="connected" class="flex space-x-3">
+          <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"
+            class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            type="text" placeholder="Type your message...">
+          <button (click)="sendMessage()"
+            class="bg-indigo-500 text-white rounded-full p-2 hover:bg-indigo-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+        </div>
+        <div *ngIf="!connected && !role" class="text-center">
+          <span
+            class="inline-block bg-gray-200 rounded-full px-4 py-2 text-sm font-semibold text-gray-700">Requested</span>
+        </div>
+        <div *ngIf="!connected && role=='engineer'" class="text-center">
+          <button (click)="requestAccept(receiverDatas._id)"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition-colors">
+            Accept
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Video call container -->
-    <div class="video-call-container absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-      *ngIf="callStatus !== 'idle'" [ngClass]="{'hidden': callStatus === 'idle'}">
+    <div
+      class="video-call-container absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+      *ngIf="callStatus !== 'idle'"
+      [ngClass]="{'hidden': callStatus === 'idle'}">
 
       <!-- Calling popup -->
-      <div *ngIf="callStatus === 'calling'" class="bg-white rounded-lg p-6 shadow-2xl max-w-sm w-full">
-          <div class="flex items-center mb-4">
-              <img [src]="receiverDatas.logo||receiverDatas.profile" alt="Profile" class="w-16 h-16 rounded-full mr-4">
-              <div>
-                <h3 class="text-xl font-semibold">{{receiverDatas.companyName||receiverDatas.fullName}}</h3>
-                <p class="text-gray-600">Calling...</p>
-              </div>
-            </div>
-            <button (click)="endCall()"
-              class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
-              Cancel Call
-            </button>
+      <div *ngIf="callStatus === 'calling'"
+        class="bg-white rounded-lg p-6 shadow-2xl max-w-sm w-full">
+        <div class="flex items-center mb-4">
+          <img [src]="receiverDatas.logo||receiverDatas.profile" alt="Profile"
+            class="w-16 h-16 rounded-full mr-4">
+          <div>
+            <h3
+              class="text-xl font-semibold">{{receiverDatas.companyName||receiverDatas.fullName}}</h3>
+            <p class="text-gray-600">Calling...</p>
+          </div>
+        </div>
+        <button (click)="endCall()"
+          class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
+          Cancel Call
+        </button>
       </div>
 
       <!-- Receiving call popup -->
-      <div *ngIf="callStatus === 'receiving'" class="bg-white rounded-lg p-6 shadow-2xl max-w-sm w-full">
-          <div class="flex items-center mb-4">
-              <img [src]="receiverDatas.logo||receiverDatas.profile" alt="Profile" class="w-16 h-16 rounded-full mr-4">
-              <div>
-                <h3 class="text-xl font-semibold">{{receiverDatas.companyName||receiverDatas.fullName}}</h3>
-                <p class="text-gray-600">Incoming call...</p>
-              </div>
-            </div>
-            <div class="flex space-x-4">
-              <button (click)="acceptCall()"
-                class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
-                Accept
-              </button>
-              <button (click)="rejectCall()"
-                class="flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
-                Reject
-              </button>
-            </div>
+      <div *ngIf="callStatus === 'receiving'"
+        class="bg-white rounded-lg p-6 shadow-2xl max-w-sm w-full">
+        <div class="flex items-center mb-4">
+          <img [src]="receiverDatas.logo||receiverDatas.profile" alt="Profile"
+            class="w-16 h-16 rounded-full mr-4">
+          <div>
+            <h3
+              class="text-xl font-semibold">{{receiverDatas.companyName||receiverDatas.fullName}}</h3>
+            <p class="text-gray-600">Incoming call...</p>
+          </div>
+        </div>
+        <div class="flex space-x-4">
+          <button (click)="acceptCall()"
+            class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+            Accept
+          </button>
+          <button (click)="rejectCall()"
+            class="flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
+            Reject
+          </button>
+        </div>
       </div>
 
       <!-- In-call interface -->
-      <div *ngIf="callStatus === 'inCall' || callStatus === 'receiving'" [ngClass]="{'hidden': callStatus === 'receiving'}" class="w-full h-full flex flex-col md:flex-row">
+      <div *ngIf="callStatus === 'inCall' || callStatus === 'receiving'"
+        [ngClass]="{'hidden': callStatus === 'receiving'}"
+        class="w-full h-full flex flex-col md:flex-row">
         <!-- Video container -->
         <div class="flex-grow relative md:w-1/2">
-          <video #remoteVideo autoplay class="w-full h-full object-cover"></video>
+          <video #remoteVideo autoplay
+            class="w-full h-full object-cover"></video>
           <video #localVideo autoplay
             class="absolute top-4 right-4 w-1/4 h-1/4 object-cover rounded-lg border-2 border-white"></video>
 
           <!-- Call controls -->
-          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-            <button (click)="toggleAudio()" 
-            [ngClass]="{'bg-red-500': isAudioMuted, 'bg-white bg-opacity-20': !isAudioMuted}"
-            class="hover:bg-opacity-30 p-3 rounded-full transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-            </svg>
-          </button>
-          <button (click)="toggleVideo()" 
-            [ngClass]="{'bg-red-500': isVideoMuted, 'bg-white bg-opacity-20': !isVideoMuted}"
-            class="hover:bg-opacity-30 p-3 rounded-full transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-          </button>
-            <button (click)="endCall()" class="bg-red-500 hover:bg-red-600 p-3 rounded-full transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          <div
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
+            <button (click)="toggleAudio()"
+              [ngClass]="{'bg-red-500': isAudioMuted, 'bg-white bg-opacity-20': !isAudioMuted}"
+              class="hover:bg-opacity-30 p-3 rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
+                fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
+            </button>
+            <button (click)="toggleVideo()"
+              [ngClass]="{'bg-red-500': isVideoMuted, 'bg-white bg-opacity-20': !isVideoMuted}"
+              class="hover:bg-opacity-30 p-3 rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
+                fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </button>
+            <button (click)="endCall()"
+              class="bg-red-500 hover:bg-red-600 p-3 rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
+                fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"
                   d="M16 8l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z" />
               </svg>
             </button>
@@ -161,42 +196,53 @@
         </div>
 
         <!-- Chat sidebar (visible on larger screens during call) -->
-        <div class="hidden md:flex md:w-1/2 border-l border-gray-200 flex-col h-full bg-white">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 flex items-center space-x-4">
-          <button (click)="backButton()" class="text-white hover:text-indigo-200 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        <div
+          class="hidden md:flex md:w-1/2 border-l border-gray-200 flex-col h-full bg-white">
+          <!-- Header -->
+          <div
+            class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 flex items-center space-x-4">
+            <button (click)="backButton()"
+              class="text-white hover:text-indigo-200 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
             </button>
-      
+
             <div class="flex-shrink-0">
-              <img class="h-12 w-12 rounded-full object-cover border-2 border-white"
-                src="{{receiverDatas.logo||receiverDatas.profile}}" alt="Profile">
+              <img
+                class="h-12 w-12 rounded-full object-cover border-2 border-white"
+                src="{{receiverDatas.logo||receiverDatas.profile}}"
+                alt="Profile">
             </div>
-      
+
             <div class="flex-1 min-w-0">
               <h2 class="text-lg font-medium text-white truncate">
                 {{receiverDatas.companyName||receiverDatas.fullName}}
               </h2>
               <!-- <p class="text-indigo-200 text-sm truncate">Online</p> -->
             </div>
-      
+
             <div *ngIf="connected" class="flex space-x-2">
-              <button *ngIf="role=='engineer'" routerLink="/engineer/workRequest/{{receiverDatas._id}}"
+              <button *ngIf="role=='engineer'"
+                routerLink="/engineer/workRequest/{{receiverDatas._id}}"
                 class="text-white hover:bg-indigo-700 rounded-full p-2 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2"
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
               </button>
             </div>
-      </div>
+          </div>
 
-      <!-- Chat messages -->
-      <div #chatWindow2 class="flex-grow overflow-y-auto p-4 space-y-4">
-          <ng-container *ngFor="let message of messages">
-              <div [ngClass]="{'justify-start': message.sender === receiver, 'justify-end': message.sender === sender}"
+          <!-- Chat messages -->
+          <div #chatWindow2 class="flex-grow overflow-y-auto p-4 space-y-4">
+            <ng-container *ngFor="let message of messages">
+              <div
+                [ngClass]="{'justify-start': message.sender === receiver, 'justify-end': message.sender === sender}"
                 class="flex">
                 <div
                   [ngClass]="{'bg-indigo-100 text-indigo-800': message.sender === receiver, 'bg-purple-100 text-purple-800': message.sender === sender}"
@@ -205,18 +251,20 @@
                 </div>
               </div>
             </ng-container>
-      </div>
+          </div>
 
-      <!-- Input area -->
-      <div class="border-t border-gray-200 p-4">
-          <div *ngIf="connected" class="flex space-x-3">
+          <!-- Input area -->
+          <div class="border-t border-gray-200 p-4">
+            <div *ngIf="connected" class="flex space-x-3">
               <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()"
                 class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 type="text" placeholder="Type your message...">
               <button (click)="sendMessage()"
                 class="bg-indigo-500 text-white rounded-full p-2 hover:bg-indigo-600 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2"
                     d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
               </button>
@@ -231,7 +279,7 @@
                 Accept
               </button>
             </div>
-      </div>
+          </div>
         </div>
       </div>
     </div>

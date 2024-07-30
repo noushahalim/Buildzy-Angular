@@ -1,57 +1,76 @@
-<div>
-    <engineer-navbar></engineer-navbar>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
-        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
-          <h2 class="text-2xl font-bold mb-6 text-center">Work Request Form</h2>
-          <form [formGroup]="workRequestForm" (ngSubmit)="onSubmit()">
-            <div class="mb-4">
-              <label class="block text-gray-700">Project Title:</label>
-              <input formControlName="projectTitle" class="w-full p-2 border border-gray-300 rounded mt-1" type="text" placeholder="Enter project title">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Project Description:</label>
-              <textarea formControlName="projectDescription" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Enter project description"></textarea>
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Project Location:</label>
-              <input formControlName="projectLocation" class="w-full p-2 border border-gray-300 rounded mt-1" type="text" placeholder="Enter project location">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Project Type:</label>
-              <select formControlName="projectType" class="w-full p-2 border border-gray-300 rounded mt-1">
-                <option value="Residential">Residential</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Industrial">Industrial</option>
-              </select>
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Start Date:</label>
-              <input formControlName="startDate" class="w-full p-2 border border-gray-300 rounded mt-1" type="date">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">End Date:</label>
-              <input formControlName="endDate" class="w-full p-2 border border-gray-300 rounded mt-1" type="date">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Client Name:</label>
-              <input formControlName="clientName" class="w-full p-2 border border-gray-300 rounded mt-1" type="text" >
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Estimated Cost(INR):</label>
-              <input formControlName="estimatedCost" class="w-full p-2 border border-gray-300 rounded mt-1" type="number" placeholder="Enter estimated cost">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Milestones:</label>
-              <div formArrayName="milestones" class="space-y-2">
-                <div *ngFor="let milestone of milestones.controls; let i=index">
-                  <input [formControlName]="i" class="w-full p-2 border border-gray-300 rounded mt-1" type="text" placeholder="Enter milestone">
-                </div>
-              </div>
-              <button type="button" (click)="addMilestone()" class="mt-2 p-2 bg-blue-500 text-white rounded">Add Milestone</button>
-            </div>
-            <button type="submit" class="w-full p-2 bg-green-500 text-white rounded">Submit</button>
-          </form>
+<div class="bg-[#c6f2c2]">
+  <engineer-navbar></engineer-navbar>
+  <div class="min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl">
+      <h2 class="text-2xl font-bold mb-6 text-center">Work Request Form</h2>
+      <form [formGroup]="workRequestForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label class="block text-gray-700">Project Title:</label>
+          <input formControlName="projectTitle"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="text"
+            placeholder="Enter project title">
         </div>
-      </div>
-      
+        <div class="mb-4">
+          <label class="block text-gray-700">Project Description:</label>
+          <textarea formControlName="projectDescription"
+            class="w-full p-2 border border-gray-300 rounded mt-1"
+            placeholder="Enter project description"></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Project Location:</label>
+          <input formControlName="projectLocation"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="text"
+            placeholder="Enter project location">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Project Type:</label>
+          <select formControlName="projectType"
+            class="w-full p-2 border border-gray-300 rounded mt-1">
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Industrial">Industrial</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Start Date:</label>
+          <input formControlName="startDate"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="date">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">End Date:</label>
+          <input formControlName="endDate"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="date">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Client Name:</label>
+          <input formControlName="clientName"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="text">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Estimated Cost(INR):</label>
+          <input formControlName="estimatedCost"
+            class="w-full p-2 border border-gray-300 rounded mt-1" type="number"
+            placeholder="Enter estimated cost">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700">Milestones:</label>
+          <div formArrayName="milestones" class="space-y-2">
+            <div *ngFor="let milestone of milestones.controls; let i=index">
+              <input [formControlName]="i"
+                class="w-full p-2 border border-gray-300 rounded mt-1"
+                type="text" placeholder="Enter milestone">
+            </div>
+          </div>
+          <button type="button" (click)="addMilestone()"
+            class="mt-2 p-2 bg-blue-500 text-white rounded">Add
+            Milestone</button>
+        </div>
+        <button type="submit"
+          class="w-full p-2 bg-green-500 text-white rounded">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <engineer-footer></engineer-footer>
+
 </div>

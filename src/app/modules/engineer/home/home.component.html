@@ -1,4 +1,85 @@
-<engineer-navbar></engineer-navbar>
-<div class="w-full h-screen flex items-center justify-center">
-    <button routerLink="chatDetails/666554e351685dbe8b4b4122" class="border p-5 bg-gray-300 hover:bg-gray-900 hover:text-white rounded-[20px]">Message To Client</button>
+<div class="w-full h-screen">
+    <engineer-navbar></engineer-navbar>
+    <div
+        class="w-full h-full flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-8 p-4 bg-[#c6f2c2]">
+        <div class="w-full max-w-xs">
+            <div
+                class="bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="bg-gray-900 text-white p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M3 7h2a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2zM21 7h-2a2 2 0 00-2 2v12a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2zM16 7h-1a2 2 0 00-2 2v12a2 2 0 002 2h1a2 2 0 002-2V9a2 2 0 00-2-2zM8 7H7a2 2 0 00-2 2v12a2 2 0 002 2h1a2 2 0 002-2V9a2 2 0 00-2-2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4 text-lg font-semibold text-gray-800">My
+                            Works</div>
+                    </div>
+                    <div class="mt-4">
+                        <button routerLink="/engineer/works"
+                            class="w-full bg-gray-900 text-white py-2 rounded-lg transition duration-300 hover:bg-gray-700">View
+                            Works</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-xs">
+            <div
+                class="bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="bg-gray-900 text-white p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M7 8h10M7 12h6m-3 4h8M5 10h2m4 0h6m-4 4h2m0-4h2m-8 4h6M3 10h4m4 4h4m0 0H7m0 0H3m2 0h4m-2 0h4m0 0h4m2 0H7" />
+                            </svg>
+                        </div>
+                        <div
+                            class="ml-4 text-lg font-semibold text-gray-800">Messages</div>
+                    </div>
+                    <div class="mt-4">
+                        <button routerLink="/engineer/chats"
+                            class="w-full bg-gray-900 text-white py-2 rounded-lg transition duration-300 hover:bg-gray-700">View
+                            Messages</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-xs">
+            <div
+                class="bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-105">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="bg-gray-900 text-white p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6l-2-2M12 6l2-2m0 0l2 2m-2-2v6m0 6l2 2m0 0l2-2m-2 2l-2 2m2-2l-2 2M6 18l2-2m0 0l2 2m0 0l2-2m-2 2v-6m0-6l-2-2M6 18l-2-2m0 0l-2 2m0 0l2-2m0 0l2 2m0-6v6" />
+                            </svg>
+                        </div>
+                        <div class="ml-4 text-lg font-semibold text-gray-800">My
+                            Company</div>
+                    </div>
+                    <div class="mt-4">
+                        <button routerLink="/engineer/myCompany"
+                            class="w-full bg-gray-900 text-white py-2 rounded-lg transition duration-300 hover:bg-gray-700">View
+                            Company</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <engineer-footer></engineer-footer>
 </div>

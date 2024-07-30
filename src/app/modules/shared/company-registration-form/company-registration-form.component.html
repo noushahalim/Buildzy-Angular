@@ -1,43 +1,66 @@
-<div class="h-full md:h-screen w-screen block items-center justify-center sm:block md:flex lg:flex xl:flex bg-gray-900">
-    <div class="h-[98%] w-[100%] sm:w-[100%] md:w-[80%] lg:w-[80%] xl:w-[60%] bg-[#c6f2c2] rounded-[20px]">
+<div
+    class="h-full md:h-screen w-screen block items-center justify-center sm:block md:flex lg:flex xl:flex bg-gray-900">
+    <div
+        class="h-[98%] w-[100%] sm:w-[100%] md:w-[80%] lg:w-[80%] xl:w-[60%] bg-[#c6f2c2] rounded-[20px]">
         <p class="w-full text-[30px] font-black text-center">{{header}}</p>
-        
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
-            <div class="h-[100%] w-[90%] ml-[5%] mt-4 flex flex-col gap-1 items-center">
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div
+                class="h-[100%] w-[90%] ml-[5%] mt-4 flex flex-col gap-1 items-center">
                 <div class="w-[100%] h-[100%] flex gap-5 flex-col md:flex-row">
                     <!-- part one -->
-                    <div class="h-full w-[100%] sm:w-[100%] md:w-[49%] lg:w-[49%] xl:w-[49%] flex flex-col gap-4">
+                    <div
+                        class="h-full w-[100%] sm:w-[100%] md:w-[49%] lg:w-[49%] xl:w-[49%] flex flex-col gap-4">
                         <div class="flex flex-col gap-2">
-                            <p>Company Logo <span class="text-[red]">*</span> :</p>
-                            <div class="flex flex-col gap-8 justify-center items-center">
-                                <div class=" shadow-xl h-[150px] w-[150px] md:h-[180px] md:w-[180px] rounded-full bg-white overflow-hidden">
-                                  <img src="{{ imageUrl }}" alt="" class="h-full w-full object-cover">
+                            <p>Company Logo <span class="text-[red]">*</span>
+                                :</p>
+                            <div
+                                class="flex flex-col gap-8 justify-center items-center">
+                                <div
+                                    class=" shadow-xl h-[150px] w-[150px] md:h-[180px] md:w-[180px] rounded-full bg-white overflow-hidden">
+                                    <img src="{{ imageUrl }}" alt
+                                        class="h-full w-full object-cover">
                                 </div>
-                                <input type="file" class="p-1 w-[230px] bg-[#ffff] rounded-[10px]" formControlName="image" (change)="onImageChange($event)">
-                            </div>                              
+                                <input type="file"
+                                    class="p-1 w-[230px] bg-[#ffff] rounded-[10px]"
+                                    formControlName="image"
+                                    (change)="onImageChange($event)">
+                            </div>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <p>Company Name <span class="text-[red]">*</span> :</p>
-                            <input type="text" class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]"  formControlName="companyName">
+                            <p>Company Name <span class="text-[red]">*</span>
+                                :</p>
+                            <input type="text"
+                                class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]"
+                                formControlName="companyName">
                         </div>
                         <div class="flex flex-col gap-2">
-                            <p>Company Email Address <span class="text-[red]">*</span> :</p>
-                            <input type="email" class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]"  formControlName="companyEmail">
+                            <p>Company Email Address <span
+                                    class="text-[red]">*</span> :</p>
+                            <input type="email"
+                                class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]"
+                                formControlName="companyEmail">
                         </div>
                     </div>
 
                     <!-- part two -->
-                    <div class="h-full w-[100%] sm:w-[100%] md:w-[49%] lg:w-[49%] xl:w-[49%] flex flex-col gap-4">
-                        
+                    <div
+                        class="h-full w-[100%] sm:w-[100%] md:w-[49%] lg:w-[49%] xl:w-[49%] flex flex-col gap-4">
+
                         <div class="flex flex-col gap-2">
-                            <p>Company Mobile Number <span class="text-[red]">*</span> :</p>
-                            <input type="number" class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]" formControlName="companyMobile">
+                            <p>Company Mobile Number <span
+                                    class="text-[red]">*</span> :</p>
+                            <input type="number"
+                                class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff]"
+                                formControlName="companyMobile">
                         </div>
 
                         <div class="flex flex-col gap-2">
-                            <p>Experiance <span class="text-[red]">*</span> :</p>
-                            <select formControlName="experiance" class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
-                                <option value="">Select Experiance</option>
+                            <p>Experiance <span class="text-[red]">*</span>
+                                :</p>
+                            <select formControlName="experiance"
+                                class="shadow-xl h-[40px] w-[100%]  rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
+                                <option value>Select Experiance</option>
                                 <option value=0>0 years</option>
                                 <option value=1>1+ years</option>
                                 <option value=3>3+ years</option>
@@ -49,27 +72,38 @@
                         <div class="flex gap-2">
                             <div class="flex flex-col gap-2 w-full">
                                 <p>State <span class="text-[red]">*</span> :</p>
-                                <select formControlName="state" (change)="onStateChange($event)" class="shadow-xl h-[40px] w-[100%] rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
-                                  <option value="">Select State</option>
-                                  <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+                                <select formControlName="state"
+                                    (change)="onStateChange($event)"
+                                    class="shadow-xl h-[40px] w-[100%] rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
+                                    <option value>Select State</option>
+                                    <option *ngFor="let state of states"
+                                        [value]="state">{{ state }}</option>
                                 </select>
-                              </div>
-                              <div class="flex flex-col gap-2 w-full">
-                                <p>District <span class="text-[red]">*</span> :</p>
-                                <select formControlName="district" class="shadow-xl h-[40px] w-[100%] rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
-                                  <option value="">Select District</option>
-                                  <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+                            </div>
+                            <div class="flex flex-col gap-2 w-full">
+                                <p>District <span class="text-[red]">*</span>
+                                    :</p>
+                                <select formControlName="district"
+                                    class="shadow-xl h-[40px] w-[100%] rounded-[10px] text-center focus:outline-[blue] bg-[#ffff] ">
+                                    <option value>Select District</option>
+                                    <option *ngFor="let district of districts"
+                                        [value]="district">{{ district
+                                        }}</option>
                                 </select>
-                              </div>
+                            </div>
                         </div>
 
                         <div class="flex flex-col gap-2">
-                            <p>Description <span class="text-[red]">*</span> :</p>
-                            <textarea name="" id=" " class="shadow-xl h-[120px] w-[100%]  rounded-[10px]  focus:outline-[blue] bg-[#ffff]" formControlName="description"></textarea>
+                            <p>Description <span class="text-[red]">*</span>
+                                :</p>
+                            <textarea name id=" "
+                                class="shadow-xl h-[120px] w-[100%]  rounded-[10px]  focus:outline-[blue] bg-[#ffff]"
+                                formControlName="description"></textarea>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="mt-5 bg-[#FFC42A] w-[40%] h-[40px] rounded-[10px] font-medium cursor-pointer hover:bg-[#ffba08]">Register</button>
+                <button type="submit"
+                    class="mt-5 bg-[#FFC42A] w-[40%] h-[40px] rounded-[10px] font-medium cursor-pointer hover:bg-[#ffba08]">Register</button>
             </div>
         </form>
     </div>

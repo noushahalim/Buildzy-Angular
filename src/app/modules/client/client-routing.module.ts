@@ -9,6 +9,7 @@ import { ClientChatsListComponent } from "./client-chats-list/client-chats-list.
 import { WorkRequestDetailsComponent } from "./work-request-details/work-request-details.component";
 import { ClientWorksComponent } from "./client-works/client-works.component";
 import { WorkDetailsComponent } from "./work-details/work-details.component";
+import { ClientAboutUsComponent } from "./client-about-us/client-about-us.component";
 
 const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path:'chats',component:ClientChatsListComponent},
     {path:'workRequestDetails/:id',component:WorkRequestDetailsComponent},
     {path:'works',component:ClientWorksComponent},
-    {path:'workDetails/:id',component:WorkDetailsComponent}
+    {path:'workDetails/:id',component:WorkDetailsComponent},
+    {path:'aboutUs',component:ClientAboutUsComponent}
 ]
 
 @NgModule({

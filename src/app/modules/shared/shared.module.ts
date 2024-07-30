@@ -9,6 +9,7 @@ import { OtpComponent } from './otp/otp.component';
 import { CompanyRegistrationFormComponent } from './company-registration-form/company-registration-form.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { RatingComponent } from './rating/rating.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -19,7 +20,8 @@ import { RatingComponent } from './rating/rating.component';
     OtpComponent,
     CompanyRegistrationFormComponent,
     ChatPageComponent,
-    RatingComponent
+    RatingComponent,
+    AboutUsComponent
   ],
   exports:[
     ButtonComponent,
@@ -27,7 +29,8 @@ import { RatingComponent } from './rating/rating.component';
     OtpComponent,
     CompanyRegistrationFormComponent,
     ChatPageComponent,
-    RatingComponent
+    RatingComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,
