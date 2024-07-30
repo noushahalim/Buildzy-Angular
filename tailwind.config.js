@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       backgroundImage:{
         'engineer1':"url('/assets/images/BuildingEngineer.jpg')",
-        'engineer2':"url('/assets/images/BuildingEngineer2.jpg')"
+        'engineer2':"url('/assets/images/BuildingEngineer2.jpg')",
+        'clientHome':"url('/assets/images/clientHome.jpg')"
       }
     },
   },
