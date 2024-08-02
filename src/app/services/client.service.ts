@@ -37,6 +37,11 @@ export class ClientService{
         return this.http.get(companyConnectApi)
     }
 
+    companyConnectionStatus(id:string):Observable<any>{
+        const companyConnectionStatusApi=`${this.api}/client/companyConnectionStatus/${id}`
+        return this.http.get(companyConnectionStatusApi)
+    }
+
     companyChats(id:string):Observable<any>{
         const companyChatsApi=`${this.api}/client/companyChats/${id}`
         return this.http.get(companyChatsApi)

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -19,7 +19,7 @@ export class HomeComponent {
   buttonDisabled:boolean=false
   accessType:string | null=''
   notificationCount=0
-  style1:string='bg-white bg-opacity-40 pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
+  style1:string='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
   style2:string='rounded pl-4 pr-4 h-10 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 md:text-base lg:text-lg xl:text-xl'
   style3:string='shadow-xl w-full pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300'
   style4:string='w-full rounded pl-2 pr-2 h-6 text-sm bg-green-900 text-white hover:text-green-900 hover:bg-white hover:border duration-300 '
@@ -50,6 +50,19 @@ export class HomeComponent {
     this.name= this.commonService.fullName
     this.email= this.commonService.email
     this.accessType = localStorage.getItem('accessType')
+  }
+
+  @HostListener('window:scroll',[])
+  onWindowScroll(){
+    const scrollPosition = window.scrollY || window.pageYOffset;
+    const screenHeight = window.innerHeight;
+
+    if(scrollPosition > screenHeight){
+      this.style1='bg-white bg-opacity-40 pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
+    }
+    else{
+      this.style1='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
+    }
   }
   
   menuClicked(){

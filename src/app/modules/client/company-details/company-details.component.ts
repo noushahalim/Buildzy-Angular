@@ -29,11 +29,16 @@ export class CompanyDetailsComponent implements OnInit{
     )
     if(this.commonService.token){
       this.isLogined = true
-      this.clientService.companyChats(this.companyDetails.engineerId).subscribe(
-        (response)=>{
-          this.connectionStatus = true
-        }
-      )
+        this.clientService.companyConnectionStatus(this.companyDetails.engineerId).subscribe(
+          (response)=>{
+            if(response===true){
+              this.connectionStatus = true
+            }
+          },
+          (error)=>{
+            console.log(error);
+          }
+        )
       this.clientService.workRequests(this.companyDetails.engineerId).subscribe(
         (response)=>{
           this.workRequests = response
