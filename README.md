@@ -1,12 +1,11 @@
 # Buildzy
 
-Buildzy is a web application built with Angular 16 that helps users connect with skilled engineers and browse available properties. The platform is designed to facilitate the process of hiring engineers for various tasks and buying properties from engineers who have them for sale. Buildzy includes modules for users, engineers, and administrators, each with specific functionalities.
+Buildzy is a web application built with Angular 16 that helps users connect with skilled engineers. The platform is designed to facilitate the process of hiring engineers for various tasks. Buildzy includes modules for users and engineers, each with specific functionalities.
 
 ## **Table of Contents**
 - [Features](#features)
   - [User Modules](#user-modules)
   - [Engineer Modules](#engineer-modules)
-  - [Admin Modules](#admin-modules)
   - [Additional Modules](#additional-modules)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -20,62 +19,38 @@ Buildzy is a web application built with Angular 16 that helps users connect with
   - Signup/Login
   - Profile Management (Edit profile details)
 - **Work Request**
-  - Search for engineers (filters: location, work experience)
+  - Search for engineers (filters: location, work experience, rating)
   - Post a work request (details, budget)
   - View work requests (past and present)
   - Work details page (full details, status updates)
+  - Accept work request forms created by engineers based on user preferences
   - Chat with engineer team (text, video call)
-  - Review engineers after work completion
-  - Payment to engineer
-- **Property Search**
-  - Browse all properties (rooms, flats, complexes, buildings)
-  - Filter properties (location, type, price)
-  - Property details page (full details, images)
-  - Chat with seller (text)
-  - Purchase property
-  - Payment for property
+  - Review engineers after work starts and after work completion
+  - Invoice download option
 - **User Dashboard**
-  - View all work requests and purchased properties (with links to details)
+  - View all work requests (with links to details)
   - Manage account settings
 
 ### **Engineer Modules**
 - **Engineer Management**
-  - Edit profile (details, team information, portfolio)
-  - Add work examples (images, descriptions)
+  - Edit profile (details, team information)
 - **Work Management**
   - View all work requests
+  - Create and send work request forms based on user preferences
   - Accept/decline work requests
   - Update work status with details
-  - Chat with users (text)
-- **Property Management**
-  - Add properties for sale (details, images)
-  - Manage property listings
+  - Chat with users (text, video call)
 - **Engineer Dashboard**
   - View committed works (accepted requests)
-  - View sold properties
   - Manage account settings
-
-### **Admin Modules**
-- **User Management**
-  - View all users
-  - Ban/suspend users
-- **Engineer Management**
-  - View all engineer signup requests
-  - Approve/reject engineer signups
-  - View all engineers
-  - Ban/suspend engineers
-- **Content Management**
-  - Manage system settings (categories, locations, etc.)
 
 ### **Additional Modules**
 - **Authentication and Authorization**
   - Secure user login with role-based access control (RBAC) using JWT tokens
 - **Chat Functionality**
   - Real-time messaging with video call integration
-- **Payment Gateway**
-  - Secure payment processing for user payments to engineers and property sellers
 - **Notification System**
-  - Notifications for work status updates, property updates, chat messages, etc. (optional)
+  - Notifications for work status updates, chat messages, etc.
 
 ## **Installation**
 
@@ -92,15 +67,19 @@ Buildzy is a web application built with Angular 16 that helps users connect with
 
 3. Start the development server:
     ```bash
-    ng serve
+    ng serve --port 5003
     ```
-    The application will be available at `http://localhost:4200`.
+    The application will be available at `http://localhost:5003`.
 
 ## **Usage**
 
-- Navigate to `http://localhost:4200` in your browser.
-- Signup as a user, engineer, or log in as an admin to access different features.
+- Navigate to `http://localhost:5003` in your browser.
+- Signup as a user or engineer to access different features.
 - Explore the functionalities based on the role.
+
+## **Live Application**
+
+You can access the live application at [https://buildzy.solutions](https://buildzy.solutions).
 
 ## **Contributing**
 
