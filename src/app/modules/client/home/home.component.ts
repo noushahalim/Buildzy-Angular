@@ -28,6 +28,7 @@ export class HomeComponent {
   showChangeProfileModal:boolean=false
   previewImageSrc:string=''
   imageFile:any = null
+  navbg:string = 'sm:bg-transparent sm:shadow-none'
   
   ngOnInit() {
     if(this.commonService.token){
@@ -58,10 +59,10 @@ export class HomeComponent {
     const screenHeight = window.innerHeight;
 
     if(scrollPosition > screenHeight){
-      this.style1='bg-white bg-opacity-40 pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
+      this.navbg = 'sm:bg-opacity-70'
     }
     else{
-      this.style1='pl-2 pr-2 h-8 text-sm text-[#303771] hover:text-white hover:bg-[#303771] duration-300 md:text-base lg:text-lg xl:text-xl rounded'
+      this.navbg = 'sm:bg-transparent sm:shadow-none'
     }
   }
   

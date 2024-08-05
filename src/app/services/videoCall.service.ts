@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ChatService } from './chat.service';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from "src/environment/environment";
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +15,28 @@ export class VideoCallService {
 
     private localVideoElement: HTMLVideoElement | null = null;
     private remoteVideoElement: HTMLVideoElement | null = null;
+
+    constraints = {
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+        },
+        video: true,
+    };
+
+    iceServers = {
+        iceServers: [
+            {
+                urls: environment.turnUrl,
+                username: environment.turnUsername,
+                credential: environment.turncredential
+            },
+            {
+              urls: 'stun:stun.l.google.com:19302'
+            }
+        ]
+    };
 
     constructor(private chatService: ChatService) {}
 
@@ -31,13 +54,9 @@ export class VideoCallService {
         this.currentReceiver = receiver;
         this.callStatus.next('calling');
         try {
-            this.localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            this.localStream = await navigator.mediaDevices.getUserMedia(this.constraints);
 
-            this.peerConnection = new RTCPeerConnection({
-                iceServers: [
-                    { urls: 'stun:stun.l.google.com:19302' }
-                ]
-            });
+            this.peerConnection = new RTCPeerConnection(this.iceServers);
 
             this.localStream.getTracks().forEach(track => {
                 if (this.peerConnection && this.localStream) {
@@ -84,11 +103,7 @@ export class VideoCallService {
         this.currentReceiver = sender;
         this.callStatus.next('receiving');
         try {
-            this.peerConnection = new RTCPeerConnection({
-                iceServers: [
-                    { urls: 'stun:stun.l.google.com:19302' }
-                ]
-            });
+            this.peerConnection = new RTCPeerConnection(this.iceServers);
 
             this.peerConnection.ontrack = (event) => {
                 event.streams[0].getTracks().forEach(track => {
@@ -120,7 +135,7 @@ export class VideoCallService {
 
     async acceptCall() {
         try {
-            this.localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            this.localStream = await navigator.mediaDevices.getUserMedia(this.constraints);
 
             this.localStream.getTracks().forEach(track => {
                 if (this.peerConnection && this.localStream) {
